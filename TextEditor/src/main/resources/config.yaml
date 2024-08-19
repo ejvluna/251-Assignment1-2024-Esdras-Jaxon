@@ -1,0 +1,9 @@
+# a basic configuration file for the application
+default:
+  # set the default font for the application
+  textFormat: "Monospaced"
+  # set the default font size for the application
+  fontSize: 12
+  # set the default font color for the application
+  fontColor: "black"
+

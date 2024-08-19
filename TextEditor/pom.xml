@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project Coordinates: Defines the unique identity of the project (groupId, artifactId, version) -->
+    <groupId>org.example</groupId>
+    <artifactId>TextEditor</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- Properties: Defines project-specific properties like Java version and encoding -->
+    <properties>
+        <!-- Java version for compilation -->
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <!-- Encoding for source files -->
+        <project.build.sourceEncoding>UTF-8
+        </project.build.sourceEncoding>
+    </properties>
+
+    <!--Dependencies: Lists the external libraries and frameworks the project depends on. -->
+    <dependencies>
+        <!-- Add any necessary dependencies here (e.g. JavaFX) -->
+    </dependencies>
+
+    <!-- Build Configuration: (Optional) Customizes the build process. -->
+    <build>
+        <!--Add any custom build configurations here -->
+        <plugins>
+            <!-- Add any necessary plugins here -->
+        </plugins>
+    </build>
+
+</project>
