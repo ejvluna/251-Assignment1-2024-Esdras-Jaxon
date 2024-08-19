@@ -29,6 +29,22 @@
         <!--Add any custom build configurations here -->
         <plugins>
             <!-- Add any necessary plugins here -->
+            <plugin>
+                <!-- Plugin for executing Java applications -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>TextEditor</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
