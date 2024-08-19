@@ -48,6 +48,15 @@ public class TextEditor extends JFrame {
         // Initialize a file chooser for selecting menu items (directory, file)
         fileChooser = new JFileChooser();
 
+        // *** further implementation of the text editor functionalities will be added here
+
+        // Set up a "New" menu item under the "File" menu using JMenuItem class
+        JMenuItem newMenuItem = new JMenuItem("New"); //
+        fileMenu.add(newMenuItem);
+
+        // Add an action listener to the "New" menu item to create a new text editor window when clicked
+        newMenuItem.addActionListener(e -> new TextEditor());
+
         // Make the new text editor window visible
         setVisible(true);
 
