@@ -19,9 +19,9 @@ import org.w3c.dom.Node; // to use Node class to represent a node in the documen
 public class TextEditor extends JFrame {
     // Declare the main components of the text editor:
     // a text area for editing text,
-    private JTextArea textArea;
+    private final JTextArea textArea;
     // a file chooser for opening/saving files
-    private JFileChooser fileChooser;
+    private final JFileChooser fileChooser;
 
     // A class constructor to initialize a new text editor window
     public TextEditor() {
