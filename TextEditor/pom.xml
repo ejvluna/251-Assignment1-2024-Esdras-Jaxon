@@ -19,9 +19,23 @@
         </project.build.sourceEncoding>
     </properties>
 
-    <!--Dependencies: Lists the external libraries and frameworks the project depends on. -->
+    <!--Dependencies: Add any necessary dependencies here -->
     <dependencies>
-        <!-- Add any necessary dependencies here (e.g. JavaFX) -->
+        <dependency>
+            <!-- To use the ODF Toolkit to read and write ODF documents -->
+            <groupId>org.odftoolkit</groupId>
+            <artifactId>odfdom-java</artifactId>
+            <version>0.12.0</version>
+            <!-- find latest versions: https://mvnrepository.com/artifact/org.odftoolkit/odftoolkit -->
+        </dependency>
+
+        <dependency>
+            <!-- To use the Xerces parser to parse XML documents -->
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.12.2</version>
+            <!-- find latest version: https://mvnrepository.com/artifact/xerces/xercesImpl -->
+        </dependency>
     </dependencies>
 
     <!-- Build Configuration: (Optional) Customizes the build process. -->
@@ -30,18 +44,20 @@
         <plugins>
             <!-- Add any necessary plugins here -->
             <plugin>
-                <!-- Plugin for executing Java applications -->
+                <!-- Plugin for executing Java applications when building the project -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <executions>
                     <execution>
                         <goals>
+                            <!-- Execute the Java application -->
                             <goal>java</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
+                    <!-- Define the main class to execute -->
                     <mainClass>TextEditor</mainClass>
                 </configuration>
             </plugin>
