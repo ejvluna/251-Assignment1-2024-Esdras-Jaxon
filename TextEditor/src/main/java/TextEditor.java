@@ -8,7 +8,6 @@
 import javax.swing.*; // to use Swing components for the GUI
 import java.awt.*; // to use AWT components for the GUI
 import java.io.*; // to use file input/output for reading files
-import javax.swing.filechooser.FileNameExtensionFilter; // to filter file types
 import org.odftoolkit.odfdom.doc.OdfTextDocument; // to work with ODT files
 import org.w3c.dom.NodeList; // to use NodeList class for working with the content of the document
 import org.w3c.dom.Node; // to use Node class to represent a node in the document
@@ -29,7 +28,6 @@ public class TextEditor extends JFrame {
         setTitle("Text Editor");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
 
         // Set up an area for editing text
         textArea = new JTextArea(); // Create a new instance of JTextArea class
@@ -55,7 +53,7 @@ public class TextEditor extends JFrame {
         // Initialize a file chooser for selecting menu items (directory, file)
         fileChooser = new JFileChooser();
 
-        // *** further implementation of the text editor functionalities will be added here
+        // 1.1. 'File' menu item Implementations here:
 
         // Set up a "New" menu item under the "File" menu
         JMenuItem newMenuItem = new JMenuItem("New"); // create a new instance of JMenuItem class
@@ -72,7 +70,7 @@ public class TextEditor extends JFrame {
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 String filePath = selectedFile.getAbsolutePath();
-                // Check the file extension and call the appropriate method to read the file
+                // Check the file extension and call the appropriate helper method to read the file
                 if (filePath.endsWith(".txt")) {
                     readTxtFile(selectedFile);
                 }
@@ -85,6 +83,33 @@ public class TextEditor extends JFrame {
                 }
             }
         });
+
+        // Set up a "Save" menu item under the "File" menu
+        JMenuItem saveMenuItem = new JMenuItem("Save"); // create a new instance of JMenuItem class
+        fileMenu.add(saveMenuItem); // add the "Save" menu item to the "File" menu
+        // Add an action listener to the "Save" menu item
+        saveMenuItem.addActionListener(e -> {
+            // Display a file chooser dialog
+            int returnValue = fileChooser.showSaveDialog(this);
+            // If the user selects a file location and name, save the content of the current text area to the file location
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                // Check if the file name ends with .txt, if not, append .txt (e.g. to ensure the file is saved as a .txt file)
+                if (!selectedFile.getName().toLowerCase().endsWith(".txt")) {
+                    selectedFile = new File(selectedFile.getAbsolutePath() + ".txt");
+                }
+                // Call a helper method to save the content to the selected file
+                saveTxtFile(selectedFile);
+            }
+        });
+
+        // 1.2 'Search' menu item Implementations here:
+
+        // 1.3 'View' menu item Implementations here:
+
+        // 1.4 'Help' menu item Implementations here:
+
+
         // Make the new text editor window visible
         setVisible(true);
     } // end of class constructor
@@ -110,9 +135,8 @@ public class TextEditor extends JFrame {
     }
     // A method to read and display the content of an .odt file
     private void readOdtFile(File file) {
-        // Use a try-catch block to try to load the content of the file using OdfTextDocument
-        try {
-            OdfTextDocument document = OdfTextDocument.loadDocument(file);
+        // Use a try-with-resources block to try to load the ODT file using the OdfTextDocument class
+        try (OdfTextDocument document = OdfTextDocument.loadDocument(file)) {
             StringBuilder content = new StringBuilder();
             // Get the content root of the document and extract the paragraphs
             NodeList paragraphs = document.getContentRoot().getElementsByTagName("text:p");
@@ -132,6 +156,19 @@ public class TextEditor extends JFrame {
         }
     }
 
+    // A method to save the content of the text area to a .txt file
+    private void saveTxtFile(File file) {
+        // Use a try-catch block to try to write the content of the text area to the file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write(textArea.getText());
+            // If the file is successfully written, display a success message
+            JOptionPane.showMessageDialog(this, "File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException ex) {
+            // If an error occurs while writing the file, display an error message
+            JOptionPane.showMessageDialog(this, "Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     // === Section 3: the 'main' method to run the text editor application ===
     public static void main (String[] args) {
@@ -139,3 +176,7 @@ public class TextEditor extends JFrame {
         new TextEditor();
     }
 }
+
+
+// Reference:
+// A try-with-resources block is a try statement that declares one or more resources (objects) that must be closed after the program is finished with it, which is a more robust way of handling resources.
