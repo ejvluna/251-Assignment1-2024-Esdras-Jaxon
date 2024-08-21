@@ -8,13 +8,16 @@ import java.io.File; // to work with input/output files
 public class MenuHandler {
     // Set up the main components of the menu handler
     private final TextEditor textEditor; // to work with the text editor
-    private final FileHandler fileHandler; // to work with files
+    private final FileHandler fileHandler; // to work with file operations
+    private final PrintHandler printHandler; // to work with print operations
 
     // A parameterized constructor to initialize a new menu handler object
     public MenuHandler(TextEditor textEditor, FileHandler fileHandler) {
-        this.textEditor = textEditor; // Initialize a new text editor
-        this.fileHandler = fileHandler; // Initialize a new file handler
-    }
+        // Initialize a text editor, file handler, and print handler
+        this.textEditor = textEditor;
+        this.fileHandler = fileHandler;
+        this.printHandler = new PrintHandler(textEditor.getTextArea());
+    } // end of constructor
 
     // A method to create the menu bar and add menu items
     public JMenuBar createMenuBar() {
@@ -41,18 +44,27 @@ public class MenuHandler {
         JMenuItem newMenuItem = new JMenuItem("New");
         fileMenu.add(newMenuItem);
         newMenuItem.addActionListener(e -> handleNewAction());
+
         // Set up an 'Open' menu item with an action listener and add it to the File menu
         JMenuItem openMenuItem = new JMenuItem("Open");
         fileMenu.add(openMenuItem);
         openMenuItem.addActionListener(e -> handleOpenAction());
+
         // Set up a 'Save' menu item with an action listener and add it to the File menu
         JMenuItem saveMenuItem = new JMenuItem("Save");
         fileMenu.add(saveMenuItem);
         saveMenuItem.addActionListener(e -> handleSaveAction());
+
         // Set up an 'Export as PDF' menu item with an action listener and add it to the File menu
         JMenuItem exportPdfMenuItem = new JMenuItem("Export as PDF");
         fileMenu.add(exportPdfMenuItem);
         exportPdfMenuItem.addActionListener(e -> handleExportPdfAction());
+
+        // Set up a 'Print' menu item with an action listener and add it to the File menu
+        JMenuItem printMenuItem = new JMenuItem("Print");
+        fileMenu.add(printMenuItem);
+        printMenuItem.addActionListener(e -> handlePrintAction());
+
         // Set up a 'Quit' menu item with an action listener and add it to the File menu
         JMenuItem quitMenuItem = new JMenuItem("Quit");
         fileMenu.add(quitMenuItem);
@@ -113,6 +125,12 @@ public class MenuHandler {
             File selectedFile = textEditor.getFileChooser().getSelectedFile(); // Get the selected file
             fileHandler.exportToPdf(selectedFile); // Call a file handler class method to export the text content as a PDF file
         }
+    }
+
+    // A helper method to handle the 'Print' menu item action
+    private void handlePrintAction() {
+        // Call the print handler class method to print the text content
+        printHandler.print();
     }
 
     // A helper method to handle the 'Quit' menu item action

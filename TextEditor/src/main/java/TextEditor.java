@@ -8,6 +8,7 @@ import java.awt.*; // to use AWT components for the GUI
 public class TextEditor extends JFrame {
     // Set up the main components of the text editor GUI:t
     private final JFileChooser fileChooser; // a file chooser for opening/saving files
+    private final JTextArea textArea = new JTextArea(); // a text area for editing text
 
     // A non-parameterized constructor to initialize a new text editor window object
     public TextEditor() {
@@ -34,6 +35,13 @@ public class TextEditor extends JFrame {
     public JFileChooser getFileChooser() {
         return fileChooser;
     }
+
+    // A public method to access the text area object from other classes (e.g. MenuHandler)
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+
     // A main method to run the text editor application
     public static void main(String[] args) {
         // Create a new text editor window
