@@ -122,7 +122,6 @@ public class TextEditor extends JFrame {
             System.exit(0);
         });
 
-
         // Set up an "Export as PDF" menu item under the "File" menu
         JMenuItem exportPdfMenuItem = new JMenuItem("Export as PDF"); // create a new instance of JMenuItem class
         fileMenu.add(exportPdfMenuItem); // add the "Export as PDF" menu item to the "File" menu
@@ -141,10 +140,6 @@ public class TextEditor extends JFrame {
                 exportToPdf(selectedFile);
             }
         });
-
-
-
-
 
         // 1.2 'Search' menu item Implementations here:
 
