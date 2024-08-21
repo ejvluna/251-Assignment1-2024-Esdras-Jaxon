@@ -4,13 +4,23 @@
 // 3. Implement functionalities specified in assignment requirements via sub-menu options.
 
 // === Section 0: Import the necessary libraries/packages for the program ===
-
+// Libraries for the GUI components
 import javax.swing.*; // to use Swing components for the GUI
 import java.awt.*; // to use AWT components for the GUI
 import java.io.*; // to use file input/output for reading files
+import java.io.IOException; // to handle IO exceptions
+// Libraries for working with ODT files
 import org.odftoolkit.odfdom.doc.OdfTextDocument; // to work with ODT files
 import org.w3c.dom.NodeList; // to use NodeList class for working with the content of the document
 import org.w3c.dom.Node; // to use Node class to represent a node in the document
+// Libraries for working with PDF files
+import org.apache.pdfbox.pdmodel.PDDocument; // to work with PDF files using PDFBox
+import org.apache.pdfbox.pdmodel.PDPage; // to create a new page in the PDF document
+import org.apache.pdfbox.pdmodel.PDPageContentStream; // to write content to the PDF page
+import org.apache.pdfbox.pdmodel.font.PDType1Font; // to set the font for the PDF content
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts; // to use the new constructor for PDType1Font per https://pdfbox.apache.org/3.0/migration.html
+
+
 
 
 // === Section 1: Create a TextEditor class to implement the text editor application ===
@@ -112,6 +122,30 @@ public class TextEditor extends JFrame {
             System.exit(0);
         });
 
+
+        // Set up an "Export as PDF" menu item under the "File" menu
+        JMenuItem exportPdfMenuItem = new JMenuItem("Export as PDF"); // create a new instance of JMenuItem class
+        fileMenu.add(exportPdfMenuItem); // add the "Export as PDF" menu item to the "File" menu
+        // Add an action listener to the "Export as PDF" menu item. When clicked:
+        exportPdfMenuItem.addActionListener(e -> {
+            // Display a file chooser dialog
+            int returnValue = fileChooser.showSaveDialog(this);
+            // If the user selects a file location and name, save the content of the current text area to the file location
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                // Check if the file name ends with .pdf, if not, append .pdf (e.g. to ensure the file is saved as a .pdf file)
+                if (!selectedFile.getName().toLowerCase().endsWith(".pdf")) {
+                    selectedFile = new File(selectedFile.getAbsolutePath() + ".pdf");
+                }
+                // Call a helper method to save the content to the selected location as a PDF file
+                exportToPdf(selectedFile);
+            }
+        });
+
+
+
+
+
         // 1.2 'Search' menu item Implementations here:
 
         // 1.3 'View' menu item Implementations here:
@@ -142,6 +176,7 @@ public class TextEditor extends JFrame {
             JOptionPane.showMessageDialog(this, "Error reading file", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
     // A method to read and display the content of an .odt file
     private void readOdtFile(File file) {
         // Use a try-with-resources block to try to load the ODT file using the OdfTextDocument class
@@ -178,6 +213,43 @@ public class TextEditor extends JFrame {
         }
     }
 
+    // A method to export the content of the text area to a PDF file using Apache PDFBox
+    private void exportToPdf(File file) {
+        // Use a try-with-resources block to try to create a new PDF document  and write the content of the text area to the PDF
+        try (PDDocument document = new PDDocument()) {
+            // Create a new page in the PDF document and add it to the document
+            PDPage page = new PDPage();
+            document.addPage(page);
+            // Create a new content stream for the page and write the content of the text area to the PDF page
+            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+            // Create a font object to specify the font for the text in the PDF per https://pdfbox.apache.org/3.0/migration.html
+            PDType1Font font = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+            // Begin the text block (e.g. to write text to the PDF)
+            contentStream.beginText();
+            // Use the font object to set the font for the content stream and specify the font size
+            contentStream.setFont(font, 12);
+            // Set the position for the text in the PDF (e.g. offset from the top-left corner)
+            contentStream.newLineAtOffset(25, 750);
+            // Split the text area content into lines and write each line to the PDF. Make the delimiter "\n" to split the text area content into lines
+            String[] lines = textArea.getText().split("\n");
+            for (String line : lines) {
+                contentStream.showText(line);
+                contentStream.newLineAtOffset(0, -15);
+            }
+            contentStream.endText();
+            contentStream.close();
+            document.save(file);
+            // If the file is successfully exported, display a success message
+            JOptionPane.showMessageDialog(this, "File exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+        // If an error occurs while exporting the file, display an error message
+        catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error exporting file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
+
 
     // === Section 3: the 'main' method to run the text editor application ===
     public static void main (String[] args) {
@@ -189,3 +261,4 @@ public class TextEditor extends JFrame {
 
 // Reference:
 // A try-with-resources block is a try statement that declares one or more resources (objects) that must be closed after the program is finished with it, which is a more robust way of handling resources.
+// To achieve this the 'object' is declared within the parentheses of the try statement, ensuring that it will be automatically closed at the end of the block.
