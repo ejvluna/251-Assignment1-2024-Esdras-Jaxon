@@ -103,6 +103,15 @@ public class TextEditor extends JFrame {
             }
         });
 
+        // Set up a "Quit" menu item under the "File" menu
+        JMenuItem quitMenuItem = new JMenuItem("Quit"); // create a new instance of JMenuItem class
+        fileMenu.add(quitMenuItem); // add the "Quit" menu item to the "File" menu
+        // Add an action listener to the "Quit" menu item
+        quitMenuItem.addActionListener(e -> {
+            // Quit the program and close all windows
+            System.exit(0);
+        });
+
         // 1.2 'Search' menu item Implementations here:
 
         // 1.3 'View' menu item Implementations here:
