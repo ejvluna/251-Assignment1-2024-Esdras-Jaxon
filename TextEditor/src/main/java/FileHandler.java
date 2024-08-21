@@ -1,6 +1,6 @@
 // This class is responsible for handling file operations such as reading, writing, and exporting files.
 
-// Import ODFTOOLKIT classes for ODT file handling
+// Import ODF TOOLKIT classes for ODT file handling
 import org.odftoolkit.odfdom.doc.OdfTextDocument; // to work with ODT files
 import org.w3c.dom.NodeList; // to use NodeList class for working with the content of the document
 import org.w3c.dom.Node; // to use Node class to represent a node in the document
@@ -8,7 +8,6 @@ import org.w3c.dom.Node; // to use Node class to represent a node in the documen
 //  Import other necessary packages/classes
 import javax.swing.*; // to work with Swing components
 import java.io.*; // to work with input/output files
-
 
 // A class to encapsulate the attributes and methods of the file handler
 public class FileHandler {
