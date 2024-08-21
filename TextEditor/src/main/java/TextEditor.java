@@ -20,9 +20,6 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream; // to write content to the
 import org.apache.pdfbox.pdmodel.font.PDType1Font; // to set the font for the PDF content
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts; // to use the new constructor for PDType1Font per https://pdfbox.apache.org/3.0/migration.html
 
-
-
-
 // === Section 1: Create a TextEditor class to implement the text editor application ===
 
 public class TextEditor extends JFrame {
