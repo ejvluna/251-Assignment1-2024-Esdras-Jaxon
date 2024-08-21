@@ -1,10 +1,50 @@
-// Project Requirements:
-// 1. Full GUI access to the application
-// 2. A menu of options at the top of the editor with the following sub-menus: File, Search, View, and Help
-// 3. Implement functionalities specified in assignment requirements via sub-menu options.
+// This class is responsible for creating the GUI used to interact with the text editor application.
 
-// === Section 0: Import the necessary libraries/packages for the program ===
-// Libraries for the GUI components
+// Import necessary packages/classes
+import javax.swing.*; // to use Swing components for the GUI
+import java.awt.*; // to use AWT components for the GUI
+import java.io.File;
+
+// A class to encapsulate the attributes and methods of the text editor application
+public class TextEditor extends JFrame {
+    // Set up the main components of the text editor GUI:
+    private final JTextArea textArea; // a text area for editing text
+    private final JFileChooser fileChooser; // a file chooser for opening/saving files
+    private final FileHandler fileHandler; // a file handler to handle file operations
+    private final MenuHandler menuHandler; // a menu handler to create the menu bar
+
+    // A non-parameterized constructor to initialize a new text editor window object
+    public TextEditor() {
+        setTitle("Text Editor");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Set up a text area for editing text with a monospaced font
+        textArea = new JTextArea();
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        add(new JScrollPane(textArea), BorderLayout.CENTER);
+
+        // Initialize the file chooser and file handler and menu handler
+        fileChooser = new JFileChooser();
+        fileHandler = new FileHandler(textArea, fileChooser);
+        menuHandler = new MenuHandler(this, fileHandler);
+
+        // Set the menu bar created by the menu handler and make it visible
+        setJMenuBar(menuHandler.createMenuBar());
+        setVisible(true);
+    }
+    // A method to get the file chooser instance
+    public JFileChooser getFileChooser() {
+        return fileChooser;
+    }
+    // A main method to run the text editor application
+    public static void main(String[] args) {
+        new TextEditor();
+    }
+}
+
+/*
+
 import javax.swing.*; // to use Swing components for the GUI
 import java.awt.*; // to use AWT components for the GUI
 import java.io.*; // to use file input/output for reading files
@@ -19,9 +59,6 @@ import org.apache.pdfbox.pdmodel.PDPage; // to create a new page in the PDF docu
 import org.apache.pdfbox.pdmodel.PDPageContentStream; // to write content to the PDF page
 import org.apache.pdfbox.pdmodel.font.PDType1Font; // to set the font for the PDF content
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts; // to use the new constructor for PDType1Font per https://pdfbox.apache.org/3.0/migration.html
-
-
-
 
 // === Section 1: Create a TextEditor class to implement the text editor application ===
 
@@ -248,15 +285,17 @@ public class TextEditor extends JFrame {
         }
     }
 
-
-
-
-    // === Section 3: the 'main' method to run the text editor application ===
+        // === Section 3: the 'main' method to run the text editor application ===
     public static void main (String[] args) {
         // Create a new instance of the TextEditor class to run the text editor application
         new TextEditor();
     }
 }
+*/
+
+
+
+
 
 
 // Reference:
