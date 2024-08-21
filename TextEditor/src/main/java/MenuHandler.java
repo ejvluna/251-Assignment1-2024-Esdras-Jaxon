@@ -1,4 +1,10 @@
-// This class is responsible for creating the  menu bar and handling the menu items actions.
+/**
+ * The MenuHandler class is responsible for creating the menu bar and handling the menu items actions in a simple text editor application.
+ * This class provides functionality to manage file operations, print operations, and display the 'About' dialog.
+ * @author Esdras Luna
+ * @version 1.0
+ * @since 2024-08-21
+ */
 
 // Import necessary packages/classes
 import javax.swing.*; // to work with Swing components
@@ -6,23 +12,31 @@ import java.io.File; // to work with input/output files
 
 // A class to encapsulate the attributes and methods of the menu handler
 public class MenuHandler {
-    // Set up the main components of the menu handler
+
+    // === CLASS ATTRIBUTES ===
+
+    // Attributes of the menu handler class
     private final TextEditor textEditor; // to work with the text editor
     private final FileHandler fileHandler; // to work with file operations
     private final PrintHandler printHandler; // to work with print operations
+    private final AboutHandler aboutHandler; // to work with the 'About' dialog
+
+    // === CLASS METHODS ===
 
     // A parameterized constructor to initialize a new menu handler object
     public MenuHandler(TextEditor textEditor, FileHandler fileHandler) {
-        // Initialize a text editor, file handler, and print handler
+        // Initialize associated objects
         this.textEditor = textEditor;
         this.fileHandler = fileHandler;
         this.printHandler = new PrintHandler(textEditor.getTextArea());
+        this.aboutHandler = new AboutHandler();
     } // end of constructor
 
     // A method to create the menu bar and add menu items
     public JMenuBar createMenuBar() {
         // Set up a new menu bar
         JMenuBar menuBar = new JMenuBar();
+
         // Set up the required menus: File, Search, View, and Help
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
@@ -32,9 +46,10 @@ public class MenuHandler {
         menuBar.add(viewMenu);
         JMenu helpMenu = new JMenu("Help");
         menuBar.add(helpMenu);
-        // Add menu items to the File menu
+
+        // Add menu items to the corresponding menus
         addFileMenuItems(fileMenu);
-        // Return the created menu bar
+        addHelpMenuItems(helpMenu);
         return menuBar;
     }
 
@@ -69,6 +84,14 @@ public class MenuHandler {
         JMenuItem quitMenuItem = new JMenuItem("Quit");
         fileMenu.add(quitMenuItem);
         quitMenuItem.addActionListener(e -> handleQuitAction());
+    }
+
+    // A method to add menu items to the Help menu
+    private void addHelpMenuItems(JMenu helpMenu) {
+        // Set up an 'About' menu item with an action listener and add it to the Help menu
+        JMenuItem aboutMenuItem = new JMenuItem("About");
+        helpMenu.add(aboutMenuItem);
+        aboutMenuItem.addActionListener(e -> handleAboutAction());
     }
 
     // A helper method to handle the 'New' menu item action
@@ -137,6 +160,12 @@ public class MenuHandler {
     private void handleQuitAction() {
         // Exit the application
         System.exit(0);
+    }
+
+    // A helper method to handle the 'About' menu item action
+    private void handleAboutAction() {
+        // Call an 'About' handler class method to show the 'About' dialog
+        aboutHandler.showAboutDialog();
     }
 
     // A helper method to get the file extension from the file path

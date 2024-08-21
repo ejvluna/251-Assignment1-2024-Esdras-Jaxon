@@ -1,4 +1,10 @@
-// This class is responsible for creating the GUI used to interact with the text editor application.
+/**
+ * The TextEditor class is responsible for creating the GUI used to interact with the text editor application.
+ * This class sets up the main components of the text editor, including the text area and file chooser, and initializes the menu bar.
+ * @author Esdras Luna
+ * @version 1.0
+ * @since 2024-08-20
+ */
 
 // Import necessary packages/classes
 import javax.swing.*; // to use Swing components for the GUI
@@ -6,9 +12,14 @@ import java.awt.*; // to use AWT components for the GUI
 
 // A class to encapsulate the attributes and methods of the text editor application
 public class TextEditor extends JFrame {
-    // Set up the main components of the text editor GUI:t
+
+    // === CLASS ATTRIBUTES ===
+
+    // Attributes of the text editor class
     private final JFileChooser fileChooser; // a file chooser for opening/saving files
     private final JTextArea textArea = new JTextArea(); // a text area for editing text
+
+    // === CLASS METHODS ===
 
     // A non-parameterized constructor to initialize a new text editor window object
     public TextEditor() {
@@ -41,6 +52,7 @@ public class TextEditor extends JFrame {
         return textArea;
     }
 
+    // === MAIN METHOD ===
 
     // A main method to run the text editor application
     public static void main(String[] args) {

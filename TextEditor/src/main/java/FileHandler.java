@@ -1,4 +1,11 @@
-// This class is responsible for handling file operations such as reading, writing, and exporting files.
+/**
+ * The FileHandler class is responsible for handling file operations in a simple text editor application.
+ * This class provides functionality to open, read, save, and export text files.
+ * It also handles displaying appropriate messages for success or error conditions.
+ * @author Esdras Luna
+ * @version 1.0
+ * @since 2024-08-21
+ */
 
 // Import ODF TOOLKIT classes for ODT file handling
 import org.odftoolkit.odfdom.doc.OdfTextDocument; // to work with ODT files
@@ -11,9 +18,15 @@ import java.io.*; // to work with input/output files
 
 // A class to encapsulate the attributes and methods of the file handler
 public class FileHandler {
-    // Set up the main components of the file handler
+
+    // === CLASS ATTRIBUTES ===
+
+    // Attributes of the file handler class
     private final JTextArea textArea; // to work with the text area
     private final JFileChooser fileChooser; // to work with the file chooser
+
+    // === CLASS METHODS ===
+
     // A parameterized constructor to initialize a new file handler object
     public FileHandler(JTextArea textArea, JFileChooser fileChooser) {
         this.textArea = textArea; // Initialize a new text area
