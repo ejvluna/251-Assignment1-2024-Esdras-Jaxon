@@ -1,13 +1,3 @@
-/**
- * The PDFExporter class is responsible for exporting the text content to a PDF file.
- * This class uses Apache PDFBox to create and write content to PDF documents.
- * It ensures the file is saved with a .pdf extension and handles any exceptions that occur during the export process.
- * It also displays appropriate messages for success or error conditions.
- * @author Esdras Luna
- * @version 1.0
- * @since 2024-08-21
- */
-
 // Import Apache PDFBox classes for PDF handling
 import org.apache.pdfbox.pdmodel.PDDocument; // to work with PDF documents
 import org.apache.pdfbox.pdmodel.PDPage; // to work with PDF pages
@@ -19,6 +9,16 @@ import org.apache.pdfbox.pdmodel.font.Standard14Fonts; // to use the new constru
 import javax.swing.*; // to work with Swing components
 import java.io.File; // to work with input/output files
 import java.io.IOException; // to handle input/output exceptions
+
+/**
+ * The PDFExporter class is responsible for exporting the text content to a PDF file.
+ * This class uses Apache PDFBox to create and write content to PDF documents.
+ * It ensures the file is saved with a .pdf extension and handles any exceptions that occur during the export process.
+ * It also displays appropriate messages for success or error conditions.
+ * @author Esdras Luna
+ * @version 1.0
+ * @since 2024-08-21
+ */
 
 // A class to encapsulate the attributes and methods of the PDF exporter object
 public class PDFExporter {

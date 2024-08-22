@@ -1,3 +1,6 @@
+// Import necessary packages/classes
+import javax.swing.*; // to work with Swing components
+
 /**
  * The AboutHandler class encapsulates the attributes and methods for handling the "About" dialog in a simple text editor application.
  * This class provides functionality to display information about the team members and the application itself.
@@ -5,9 +8,6 @@
  * @version 1.0
  * @since 2024-08-22
  */
-
-// Import necessary packages/classes
-import javax.swing.*; // to work with Swing components
 
 // A class to encapsulate the attributes and methods of the 'About' handler object
 public class AboutHandler {

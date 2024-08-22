@@ -1,3 +1,7 @@
+// Import necessary packages/classes
+import javax.swing.*; // to work with Swing components
+import java.io.File; // to work with input/output files
+
 /**
  * The MenuHandler class is responsible for creating the menu bar and handling the menu items actions in a simple text editor application.
  * This class provides functionality to manage file operations, print operations, and display the 'About' dialog.
@@ -5,10 +9,6 @@
  * @version 1.0
  * @since 2024-08-21
  */
-
-// Import necessary packages/classes
-import javax.swing.*; // to work with Swing components
-import java.io.File; // to work with input/output files
 
 // A class to encapsulate the attributes and methods of the menu handler
 public class MenuHandler {
@@ -20,24 +20,29 @@ public class MenuHandler {
     private final FileHandler fileHandler; // to work with file operations
     private final PrintHandler printHandler; // to work with print operations
     private final AboutHandler aboutHandler; // to work with the 'About' dialog
+    private final TimeDateHandler timeDateHandler; // to work with time and date operations
+    private final SearchHandler searchHandler; // to work with search operations
 
     // === CLASS METHODS ===
 
-    // A parameterized constructor to initialize a new menu handler object
+    // A parameterized constructor to initialize a new menu handler object with associated objects
     public MenuHandler(TextEditor textEditor, FileHandler fileHandler) {
         // Initialize associated objects
         this.textEditor = textEditor;
         this.fileHandler = fileHandler;
         this.printHandler = new PrintHandler(textEditor.getTextArea());
         this.aboutHandler = new AboutHandler();
+        this.timeDateHandler = new TimeDateHandler(textEditor.getTextArea());
+        this.searchHandler = new SearchHandler(textEditor.getTextArea());
     } // end of constructor
 
-    // A method to create the menu bar and add menu items
+    // A method to create a menu bar and add menu items
     public JMenuBar createMenuBar() {
-        // Set up a new menu bar
+
+        // Create a new menu bar
         JMenuBar menuBar = new JMenuBar();
 
-        // Set up the required menus: File, Search, View, and Help
+        // Create Main Menus and add them to the Menu bar
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
         JMenu searchMenu = new JMenu("Search");
@@ -47,40 +52,45 @@ public class MenuHandler {
         JMenu helpMenu = new JMenu("Help");
         menuBar.add(helpMenu);
 
-        // Add menu items to the corresponding menus
+        // Call class methods to add the respective menu items to each menu
         addFileMenuItems(fileMenu);
         addHelpMenuItems(helpMenu);
+        addViewMenuItems(viewMenu);
+        addSearchMenuItems(searchMenu);
+
+        // Return the menu bar with the added menus
         return menuBar;
     }
 
     // A method to add menu items to the File menu
     private void addFileMenuItems(JMenu fileMenu) {
-        // Set up a 'New' menu item with an action listener and add it to the File menu
+
+        // Create a 'New' menu item with an action listener and add it to the File menu
         JMenuItem newMenuItem = new JMenuItem("New");
         fileMenu.add(newMenuItem);
         newMenuItem.addActionListener(e -> handleNewAction());
 
-        // Set up an 'Open' menu item with an action listener and add it to the File menu
+        // Create an 'Open' menu item with an action listener and add it to the File menu
         JMenuItem openMenuItem = new JMenuItem("Open");
         fileMenu.add(openMenuItem);
         openMenuItem.addActionListener(e -> handleOpenAction());
 
-        // Set up a 'Save' menu item with an action listener and add it to the File menu
+        // Create a 'Save' menu item with an action listener and add it to the File menu
         JMenuItem saveMenuItem = new JMenuItem("Save");
         fileMenu.add(saveMenuItem);
         saveMenuItem.addActionListener(e -> handleSaveAction());
 
-        // Set up an 'Export as PDF' menu item with an action listener and add it to the File menu
+        // Create an 'Export as PDF' menu item with an action listener and add it to the File menu
         JMenuItem exportPdfMenuItem = new JMenuItem("Export as PDF");
         fileMenu.add(exportPdfMenuItem);
         exportPdfMenuItem.addActionListener(e -> handleExportPdfAction());
 
-        // Set up a 'Print' menu item with an action listener and add it to the File menu
+        // Create a 'Print' menu item with an action listener and add it to the File menu
         JMenuItem printMenuItem = new JMenuItem("Print");
         fileMenu.add(printMenuItem);
         printMenuItem.addActionListener(e -> handlePrintAction());
 
-        // Set up a 'Quit' menu item with an action listener and add it to the File menu
+        // Create a 'Quit' menu item with an action listener and add it to the File menu
         JMenuItem quitMenuItem = new JMenuItem("Quit");
         fileMenu.add(quitMenuItem);
         quitMenuItem.addActionListener(e -> handleQuitAction());
@@ -88,11 +98,41 @@ public class MenuHandler {
 
     // A method to add menu items to the Help menu
     private void addHelpMenuItems(JMenu helpMenu) {
-        // Set up an 'About' menu item with an action listener and add it to the Help menu
+
+        // Create a menu item for 'About' with an action listener and add it to the Help menu
         JMenuItem aboutMenuItem = new JMenuItem("About");
         helpMenu.add(aboutMenuItem);
         aboutMenuItem.addActionListener(e -> handleAboutAction());
     }
+
+    // A method to add menu items to the 'View' menu
+    private void addViewMenuItems(JMenu viewMenu) {
+
+        // Create a menu item for 'Insert Time/Date' with an action listener and add it to the View menu
+        JMenuItem timeDateMenuItem = new JMenuItem("Insert Time/Date");
+        viewMenu.add(timeDateMenuItem);
+        timeDateMenuItem.addActionListener(e -> handleTimeDateAction());
+    }
+
+    // A method to add menu items to the 'Search' menu
+    private void addSearchMenuItems(JMenu searchMenu) {
+        // A menu item for 'Partial Word Match' with an action listener and add it to the Search menu
+        JMenuItem findMenuItem = new JMenuItem("Partial Word Match");
+        searchMenu.add(findMenuItem);
+        findMenuItem.addActionListener(e -> handleFindAction());
+
+        // A menu item for 'Exact Word Match' with an action listener and add it to the Search menu
+        JMenuItem searchFullWordMenuItem = new JMenuItem("Exact Word Match");
+        searchMenu.add(searchFullWordMenuItem);
+        searchFullWordMenuItem.addActionListener(e -> handleFindFullWordAction());
+
+        // A menu item for 'Clear Highlights' with an action listener and add it to the Search menu
+        JMenuItem clearHighlightsMenuItem = new JMenuItem("Clear Highlights");
+        searchMenu.add(clearHighlightsMenuItem);
+        clearHighlightsMenuItem.addActionListener(e -> handleClearHighlightsAction());
+    }
+
+    // --- 'File' Menu helper methods
 
     // A helper method to handle the 'New' menu item action
     private void handleNewAction() {
@@ -162,12 +202,44 @@ public class MenuHandler {
         System.exit(0);
     }
 
+    // --- 'Help' Menu helper methods
+
     // A helper method to handle the 'About' menu item action
     private void handleAboutAction() {
         // Call an 'About' handler class method to show the 'About' dialog
         aboutHandler.showAboutDialog();
     }
 
+    // --- 'View' Menu helper methods
+
+    // A helper method to handle the 'Insert Time/Date' menu item action
+    private void handleTimeDateAction() {
+        System.out.println("DEBUG: handleTimeDateAction called"); // DEBUG: Print a message to the console
+        // Call the time and date handler class method to insert the current time and date
+        timeDateHandler.insertCurrentTimeDate();
+    }
+
+    // --- 'Search' Menu helper methods
+
+    // A helper method to handle the 'Find' menu item action
+    private void handleFindAction() {
+        // Call the search handler class method to display the search dialog
+        searchHandler.showSearchDialog(false); // false to indicate that it is not a full word search
+    }
+
+    // A helper method to handle the 'Search Full Word' menu item action
+    private void handleFindFullWordAction() {
+        // Call the search handler class method to display the search dialog
+        searchHandler.showSearchDialog(true ); // true to indicate that it is a full word search
+    }
+
+    // A helper method to handle the 'Clear Highlights' menu item action
+    private void handleClearHighlightsAction() {
+        searchHandler.clearHighlights();
+    }
+
+
+    // -- Other helper methods
     // A helper method to get the file extension from the file path
     private String getFileExtension(String filePath) {
         // Find the file type extension by locating the last '.' in the file path and returning the substring after it

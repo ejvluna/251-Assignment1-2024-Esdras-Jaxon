@@ -1,3 +1,7 @@
+// Import necessary packages/classes
+import javax.swing.*; // to work with Swing components
+import java.awt.print.PrinterException; // to handle printer exceptions
+
 /**
  * The PrintHandler class is responsible for handling print operations for the text editor application.
  * This class provides functionality to print the content of a text area and displays appropriate messages based on the print status.
@@ -6,10 +10,6 @@
  * @version 1.0
  * @since 2024-08-21
  */
-
-// Import necessary packages/classes
-import javax.swing.*; // to work with Swing components
-import java.awt.print.PrinterException; // to handle printer exceptions
 
 // A class to encapsulate the attributes and methods of a print handler
 public class PrintHandler {
