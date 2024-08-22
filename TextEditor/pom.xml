@@ -45,6 +45,14 @@
             <!-- find latest version: https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
         </dependency>
 
+        <!-- To use the RSyntaxTextArea library for syntax highlighting in text editors -->
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>rsyntaxtextarea</artifactId>
+            <version>3.3.0</version>
+            <!-- find latest version: https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea -->
+        </dependency>
+
     </dependencies>
 
     <!-- Build Configuration: (Optional) Customizes the build process. -->

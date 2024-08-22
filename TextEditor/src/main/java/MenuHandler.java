@@ -1,6 +1,11 @@
 // Import necessary packages/classes
-import javax.swing.*; // to work with Swing components
+import javax.swing.JMenu; // to create menus
+import javax.swing.JMenuBar; // to create menu bars
+import javax.swing.JMenuItem; // to create menu items
+import javax.swing.JOptionPane; // to display dialog boxes
+import javax.swing.JFileChooser; // to create a file chooser
 import java.io.File; // to work with input/output files
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 
 /**
  * The MenuHandler class is responsible for creating the menu bar and handling the menu items actions in a simple text editor application.
@@ -142,13 +147,15 @@ public class MenuHandler {
 
     // A helper method to handle the 'Open' menu item action
     private void handleOpenAction() {
+        // Use a try-catch block to handle exceptions that may occur during file operations
         try {
         // Show the file chooser dialog and read the selected file
         int returnValue = textEditor.getFileChooser().showOpenDialog(textEditor);
+        // If the user selects a file, get the file path
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = textEditor.getFileChooser().getSelectedFile();
             String filePath = selectedFile.getAbsolutePath();
-            // Determine the file type based on the file extension and call the appropriate file handler method
+            // Determine the file type based on the file extension and call the appropriate file handler method to open the file
             switch (getFileExtension(filePath)) {
                 case "txt": // If the file type is 'txt', call the readTxtFile method
                     fileHandler.readTxtFile(selectedFile);
@@ -158,6 +165,18 @@ public class MenuHandler {
                     break;
                 case "rtf": // If the file type is 'rtf', call the readRtfFile method
                     fileHandler.readRtfFile(selectedFile);
+                    break;
+                case "java": // If the file type is 'java', call the readSourceCodeFile method with Java syntax highlighting
+                    fileHandler.readSourceCodeFile(selectedFile, SyntaxConstants.SYNTAX_STYLE_JAVA);
+                    break;
+                case "py": // If the file type is 'py', call the readSourceCodeFile method with Python syntax highlighting
+                    fileHandler.readSourceCodeFile(selectedFile, SyntaxConstants.SYNTAX_STYLE_PYTHON);
+                    break;
+                case "cpp": // If the file type is 'cpp', call the readSourceCodeFile method with C++ syntax highlighting
+                    fileHandler.readSourceCodeFile(selectedFile, SyntaxConstants.SYNTAX_STYLE_CPLUSPLUS);
+                    break;
+                case "js": // If the file type is 'js', call the readSourceCodeFile method with JavaScript syntax highlighting
+                    fileHandler.readSourceCodeFile(selectedFile, SyntaxConstants.SYNTAX_STYLE_JAVASCRIPT);
                     break;
                     // If the file type is not supported, show an error message
                 default:
