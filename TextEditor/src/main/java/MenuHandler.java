@@ -142,23 +142,32 @@ public class MenuHandler {
 
     // A helper method to handle the 'Open' menu item action
     private void handleOpenAction() {
+        try {
         // Show the file chooser dialog and read the selected file
         int returnValue = textEditor.getFileChooser().showOpenDialog(textEditor);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = textEditor.getFileChooser().getSelectedFile();
             String filePath = selectedFile.getAbsolutePath();
-            // Find out the file type and then call the appropriate file handler method to read the file
+            // Determine the file type based on the file extension and call the appropriate file handler method
             switch (getFileExtension(filePath)) {
-                case "txt":
+                case "txt": // If the file type is 'txt', call the readTxtFile method
                     fileHandler.readTxtFile(selectedFile);
                     break;
-                case "odt":
+                case "odt": // If the file type is 'odt', call the readOdtFile method
                     fileHandler.readOdtFile(selectedFile);
+                    break;
+                case "rtf": // If the file type is 'rtf', call the readRtfFile method
+                    fileHandler.readRtfFile(selectedFile);
                     break;
                     // If the file type is not supported, show an error message
                 default:
                     JOptionPane.showMessageDialog(textEditor, "Unsupported file type", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }
+        } catch (Exception ex) {
+            System.err.println("Unexpected error in handleOpenAction: " + ex.getMessage());
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(textEditor, "An unexpected error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
