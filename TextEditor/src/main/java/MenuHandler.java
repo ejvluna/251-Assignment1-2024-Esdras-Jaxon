@@ -1,3 +1,7 @@
+// Import necessary packages/classes
+import javax.swing.*; // to work with Swing components
+import java.io.File; // to work with input/output files
+
 /**
  * The MenuHandler class is responsible for creating the menu bar and handling the menu items actions in a simple text editor application.
  * This class provides functionality to manage file operations, print operations, and display the 'About' dialog.
@@ -5,10 +9,6 @@
  * @version 1.0
  * @since 2024-08-21
  */
-
-// Import necessary packages/classes
-import javax.swing.*; // to work with Swing components
-import java.io.File; // to work with input/output files
 
 // A class to encapsulate the attributes and methods of the menu handler
 public class MenuHandler {
@@ -20,16 +20,18 @@ public class MenuHandler {
     private final FileHandler fileHandler; // to work with file operations
     private final PrintHandler printHandler; // to work with print operations
     private final AboutHandler aboutHandler; // to work with the 'About' dialog
+    private final TimeDateHandler timeDateHandler; // to work with time and date operations
 
     // === CLASS METHODS ===
 
-    // A parameterized constructor to initialize a new menu handler object
+    // A parameterized constructor to initialize a new menu handler object with associated objects
     public MenuHandler(TextEditor textEditor, FileHandler fileHandler) {
         // Initialize associated objects
         this.textEditor = textEditor;
         this.fileHandler = fileHandler;
         this.printHandler = new PrintHandler(textEditor.getTextArea());
         this.aboutHandler = new AboutHandler();
+        this.timeDateHandler = new TimeDateHandler(textEditor.getTextArea());
     } // end of constructor
 
     // A method to create the menu bar and add menu items
@@ -48,8 +50,9 @@ public class MenuHandler {
         menuBar.add(helpMenu);
 
         // Add menu items to the corresponding menus
-        addFileMenuItems(fileMenu);
-        addHelpMenuItems(helpMenu);
+        addFileMenuItems(fileMenu); // add the 'File' menu items to the 'File' menu
+        addHelpMenuItems(helpMenu); // add the 'Help' menu items to the 'Help' menu
+        addViewMenuItems(viewMenu); // add the 'View' menu items to the 'View' menu
         return menuBar;
     }
 
@@ -93,6 +96,16 @@ public class MenuHandler {
         helpMenu.add(aboutMenuItem);
         aboutMenuItem.addActionListener(e -> handleAboutAction());
     }
+
+    // A method to add menu items to the 'View' menu
+    private void addViewMenuItems(JMenu viewMenu) {
+        // Set up an 'Insert Time/Date' menu item with an action listener and add it to the View menu
+        JMenuItem timeDateMenuItem = new JMenuItem("Insert Time/Date");
+        viewMenu.add(timeDateMenuItem);
+        timeDateMenuItem.addActionListener(e -> handleTimeDateAction());
+    }
+
+    // --- 'File' Menu helper methods
 
     // A helper method to handle the 'New' menu item action
     private void handleNewAction() {
@@ -162,12 +175,24 @@ public class MenuHandler {
         System.exit(0);
     }
 
+    // --- 'Help' Menu helper methods
+
     // A helper method to handle the 'About' menu item action
     private void handleAboutAction() {
         // Call an 'About' handler class method to show the 'About' dialog
         aboutHandler.showAboutDialog();
     }
 
+    // --- 'View' Menu helper methods
+
+    // A helper method to handle the 'Insert Time/Date' menu item action
+    private void handleTimeDateAction() {
+        System.out.println("DEBUG: handleTimeDateAction called"); // DEBUG: Print a message to the console
+        // Call the time and date handler class method to insert the current time and date
+        timeDateHandler.insertCurrentTimeDate();
+    }
+
+    // -- Other helper methods
     // A helper method to get the file extension from the file path
     private String getFileExtension(String filePath) {
         // Find the file type extension by locating the last '.' in the file path and returning the substring after it
