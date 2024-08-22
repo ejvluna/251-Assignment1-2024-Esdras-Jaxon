@@ -1,4 +1,12 @@
-// This class is responsible for exporting the text content to a PDF file.
+/**
+ * The PDFExporter class is responsible for exporting the text content to a PDF file.
+ * This class uses Apache PDFBox to create and write content to PDF documents.
+ * It ensures the file is saved with a .pdf extension and handles any exceptions that occur during the export process.
+ * It also displays appropriate messages for success or error conditions.
+ * @author Esdras Luna
+ * @version 1.0
+ * @since 2024-08-21
+ */
 
 // Import Apache PDFBox classes for PDF handling
 import org.apache.pdfbox.pdmodel.PDDocument; // to work with PDF documents
@@ -14,6 +22,10 @@ import java.io.IOException; // to handle input/output exceptions
 
 // A class to encapsulate the attributes and methods of the PDF exporter object
 public class PDFExporter {
+
+    // === CLASS METHODS ===
+
+    // A static method to export the text content to a PDF file (Note: Static means it can be called without creating an instance of the class)
     public static void exportToPdf(File file, String text) {
         // Check if the file name ends with .pdf, if not, append .pdf to ensure it is recognized as a PDF file
         if (!file.getName().toLowerCase().endsWith(".pdf")) {
