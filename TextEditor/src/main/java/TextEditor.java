@@ -1,6 +1,14 @@
-// Import necessary packages/classes
-import javax.swing.*; // to use Swing components for the GUI
-import java.awt.*; // to use AWT components for the GUI
+// Import Java Swing classes to create the GUI
+import javax.swing.JFrame; // to create a window
+import javax.swing.JFileChooser; // to create a file chooser
+import javax.swing.SwingUtilities; // to work with Swing components
+import java.awt.Font; // to set the font of the text area
+import java.awt.BorderLayout; // to set the layout of the text area
+
+// Import RSyntaxTextArea classes for syntax highlighting
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
+import org.fife.ui.rtextarea.RTextScrollPane; // to create a scrollable text area
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants; // to set syntax highlighting style
 
 /**
  * The TextEditor class is responsible for creating the GUI used to interact with the text editor application.
@@ -17,7 +25,7 @@ public class TextEditor extends JFrame {
 
     // Attributes of the text editor class
     private final JFileChooser fileChooser; // a file chooser for opening/saving files
-    private final JTextArea textArea = new JTextArea(); // a text area for editing text (Note: this is returned by the getTextArea method)
+    private final RSyntaxTextArea textArea = new RSyntaxTextArea(); // a text area for editing text with syntax highlighting
 
     // === CLASS METHODS ===
 
@@ -32,7 +40,8 @@ public class TextEditor extends JFrame {
         textArea.setLineWrap(true); // Enable line wrapping
         textArea.setWrapStyleWord(true); // Wrap at word boundaries
         textArea.setEditable(true); // Enable editing
-        add(new JScrollPane(textArea), BorderLayout.CENTER); // Add the text area to the center of the frame
+        textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_NONE); // Default to no syntax highlighting
+        add(new RTextScrollPane(textArea), BorderLayout.CENTER); // Add the text area to the center of the frame
 
         // Initialize a new file chooser and file handler for file operations
         fileChooser = new JFileChooser();
@@ -51,7 +60,7 @@ public class TextEditor extends JFrame {
     }
 
     // A public method to access the text area object from other classes (e.g. MenuHandler)
-    public JTextArea getTextArea() {
+    public RSyntaxTextArea getTextArea() {
         return textArea;
     }
 

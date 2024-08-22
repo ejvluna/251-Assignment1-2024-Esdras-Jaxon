@@ -3,17 +3,23 @@ import org.odftoolkit.odfdom.doc.OdfTextDocument; // to work with ODT files
 import org.w3c.dom.NodeList; // to use NodeList class for working with the content of the document
 import org.w3c.dom.Node; // to use Node class to represent a node in the document
 
-
-//  Import other necessary packages/classes
-import javax.swing.*; // to work with Swing components
-import java.io.*; // to work with input/output files
-import javax.swing.text.BadLocationException;
+//  Import Java Swing classes for the GUI
+import javax.swing.JFileChooser; // to create a file chooser
+import javax.swing.JOptionPane; // to display dialog messages
+import javax.swing.JTextPane; // to work with a text pane
+import javax.swing.text.BadLocationException; // to handle bad location exceptions
 import javax.swing.text.rtf.RTFEditorKit; // to handle RTF files
+
+// Import Java input/output classes for file handling (wildcard import due to number of required classes)
+import java.io.*; // to work with input/output files
+
+// Import RSyntaxTextArea classes for syntax highlighting
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
 
 
 /**
  * The FileHandler class is responsible for handling file operations in a simple text editor application.
- * This class provides functionality to open, read, save, and export text files.
+ * This class provides functionality to open, read, save, and export text files. It supports .txt, .odt, .rtf, and source code files.
  * It also handles displaying appropriate messages for success or error conditions.
  * @author Esdras Luna
  * @version 1.0
@@ -25,16 +31,15 @@ public class FileHandler {
 
     // === CLASS ATTRIBUTES ===
 
-    // Attributes of the file handler class
-    private final JTextArea textArea; // to work with the text area
+    private final RSyntaxTextArea textArea; // Use RSyntaxTextArea for syntax highlighting
     private final JFileChooser fileChooser; // to work with the file chooser
 
     // === CLASS METHODS ===
 
-    // A parameterized constructor to initialize a new file handler object
-    public FileHandler(JTextArea textArea, JFileChooser fileChooser) {
-        this.textArea = textArea; // Initialize a new text area
-        this.fileChooser = fileChooser; // Initialize a new file chooser
+    // A parameterized constructor to initialize a new file handler object with a text area and file chooser
+    public FileHandler(RSyntaxTextArea textArea, JFileChooser fileChooser) {
+        this.textArea = textArea;
+        this.fileChooser = fileChooser;
     }
 
     // A method to handle the 'Open' action for .txt files
@@ -116,6 +121,33 @@ public class FileHandler {
             System.err.println("BadLocationException while reading RTF file: " + ex.getMessage());
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error processing RTF content: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // A method to read source code files with syntax highlighting
+    public void readSourceCodeFile(File file, String syntaxStyle) {
+        // Check if the file exists and is readable
+        if (!file.exists() || !file.canRead()) {
+            // Show an error message if the file does not exist or is not readable
+            JOptionPane.showMessageDialog(null, "File does not exist or is not readable", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        // Use a try-with-resources block to read the file using a buffered reader
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            // Create a string builder to store the content and a string to store each line of the file
+            StringBuilder content = new StringBuilder();
+            String line;
+            // Read the file line by line and append the content to the string builder to store it
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            // Set the syntax highlighting style for the text area
+            textArea.setSyntaxEditingStyle(syntaxStyle);
+            // Set the content from the string builder in the text area of the GUI to display it
+            textArea.setText(content.toString());
+            // If an exception occurs, show an error message
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error reading file", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
