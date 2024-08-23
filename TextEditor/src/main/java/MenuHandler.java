@@ -42,6 +42,7 @@ public class MenuHandler {
         this.timeDateHandler = new TimeDateHandler(textEditor.getTextArea());
         this.searchHandler = new SearchHandler(textEditor.getTextArea());
         this.viewHandler = new ViewHandler(textEditor.getTextArea());
+
     } // end of constructor
     // A method to create a menu bar and add menu items
     public JMenuBar createMenuBar() {

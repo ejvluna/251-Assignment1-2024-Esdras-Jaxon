@@ -53,6 +53,14 @@
             <!-- find latest version: https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea -->
         </dependency>
 
+        <!-- To use the SnakeYAML library for reading and writing YAML files -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version>
+            <!-- find latest version: https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        </dependency>
+
     </dependencies>
 
     <!-- Build Configuration: (Optional) Customizes the build process. -->
