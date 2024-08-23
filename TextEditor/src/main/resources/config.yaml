@@ -2,10 +2,11 @@
 
 # Set default values for the application
 default:
-  # set the default font for the application
-  textFormat: "Monospaced"
+  # set the default font for the application: valid fonts are: Dialog, DialogInput, Monospaced, SansSerif, Serif
+  textFormat: "monospaced"
   # set the default font size for the application
-  fontSize: 14
-  # set the default font color for the application
-  fontColor: "blue"
+  fontSize: 16
+  # set the default font color for the application in hex format or by name: valid colors are: black, blue, cyan, darkGray, gray, green, lightGray, magenta, orange, pink, red, white, yellow
+  fontColor: "gray"
+
 

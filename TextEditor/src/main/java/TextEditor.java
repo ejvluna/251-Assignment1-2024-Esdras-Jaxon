@@ -2,8 +2,9 @@
 import javax.swing.JFrame; // to create a window
 import javax.swing.JFileChooser; // to create a file chooser
 import javax.swing.SwingUtilities; // to work with Swing components
-import java.awt.Font; // to set the font of the text area
-import java.awt.BorderLayout; // to set the layout of the text area
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.*;
 
 // Import RSyntaxTextArea classes for syntax highlighting
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
@@ -26,6 +27,7 @@ public class TextEditor extends JFrame {
     // Attributes of the text editor class
     private final JFileChooser fileChooser; // a file chooser for opening/saving files
     private final RSyntaxTextArea textArea = new RSyntaxTextArea(); // a text area for editing text with syntax highlighting
+    //private static ConfigLoader config; // a configuration loader to load settings from a configuration file (e.g. yaml file
 
     // === CLASS METHODS ===
 
@@ -35,7 +37,7 @@ public class TextEditor extends JFrame {
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Specify the layout, font, and other properties of the text area of the text editor
+        // Specify the default layout, font, and other properties of the text area of the text editor
         textArea.setFont(new Font("Monospaced", Font.PLAIN, 12)); // Set the font type and size
         textArea.setLineWrap(true); // Enable line wrapping
         textArea.setWrapStyleWord(true); // Wrap at word boundaries
@@ -47,6 +49,7 @@ public class TextEditor extends JFrame {
         fileChooser = new JFileChooser();
         FileHandler fileHandler = new FileHandler(textArea, fileChooser);
         MenuHandler menuHandler = new MenuHandler(this, fileHandler);
+        //config = new ConfigLoader("config.yaml");  // Load the configuration file from the resources directory
 
         // Set the menu bar created by the menu handler and make it visible
         setJMenuBar(menuHandler.createMenuBar());
@@ -64,14 +67,8 @@ public class TextEditor extends JFrame {
         return textArea;
     }
 
-    // === MAIN METHOD ===
-
-    // A main method to run the text editor application
-    public static void main(String[] args) {
-        // Create a new text editor window
-        SwingUtilities.invokeLater(TextEditor::new); // Use the invokeLater method to ensure the GUI is created on the Event Dispatch Thread
-    }
 }
+
 
 // Reference/Notes:
 // A try-with-resources block is a try statement that declares one or more resources (objects) that must be closed after the program is finished with it, which is a more robust way of handling resources.
