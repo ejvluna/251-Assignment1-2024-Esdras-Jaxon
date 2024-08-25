@@ -61,6 +61,19 @@
             <!-- find latest version: https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
         </dependency>
 
+        <!-- To use the FlatLaf library for a modern looking GUI -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <!-- To have access to the 3rd Party FlatLaf Themes -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-intellij-themes</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+
     </dependencies>
 
     <!-- Build Configuration: (Optional) Customizes the build process. -->
