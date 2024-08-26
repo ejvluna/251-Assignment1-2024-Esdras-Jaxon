@@ -41,6 +41,7 @@ public class AboutHandler {
         JOptionPane.showMessageDialog(null, aboutMessage.toString(), "About", JOptionPane.INFORMATION_MESSAGE);
     }
 
+
     // A setter method to modify the team member names
     public void setTeamMembers(String[] teamMembers) {
         this.teamMembers = teamMembers;
@@ -60,4 +61,5 @@ public class AboutHandler {
     public String getMessage() {
         return message;
     }
+
 }
