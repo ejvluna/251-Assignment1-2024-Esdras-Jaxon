@@ -3,8 +3,8 @@
 ## Group Members
 - **Name:** Esdras Luna
   - **ID:** 23015971
-- **Name:** Jaxon Doe
-  - **ID:** 12345678
+- **Name:** Jaxon Goss
+  - **ID:** 22001841
 
 ## Instructions to Run the Program
 This project is containerized using Docker for easy deployment and execution.
