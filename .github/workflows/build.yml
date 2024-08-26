@@ -24,6 +24,10 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+    
+    # Specify the Test Resources folder
+    - name: List test resources
+      run: ls -R src/test/resources
 
     # Build the project with Maven
     - name: Build with Maven
