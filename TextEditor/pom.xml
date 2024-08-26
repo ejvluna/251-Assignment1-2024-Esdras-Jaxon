@@ -130,6 +130,8 @@
                         <include>**/*Tests.java</include>
                         <include>**/*Test.java</include>
                     </includes>
+                    <!-- Disable GUI tests by setting the java.awt.headless system property -->
+                    <argLine>-Djava.awt.headless=true</argLine>
                 </configuration>
             </plugin>
 

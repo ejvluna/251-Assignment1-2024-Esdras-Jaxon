@@ -35,6 +35,8 @@ public class FileHandlerTests {
         textArea = new RSyntaxTextArea();
         fileChooser = new JFileChooser();
         fileHandler = new FileHandler(textArea, fileChooser);
+        fileHandler.setTestEnvironment(true);
+
     }
 
     // === TEST CASES ===

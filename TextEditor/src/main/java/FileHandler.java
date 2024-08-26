@@ -13,8 +13,6 @@ import javax.swing.text.rtf.RTFEditorKit; // to handle RTF files
 // Import Java input/output classes for file handling (wildcard import due to number of required classes)
 import java.io.*; // to work with input/output files
 import javax.swing.*;
-import javax.swing.Timer; // to work with timers
-
 
 // Import RSyntaxTextArea classes for syntax highlighting
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
@@ -36,6 +34,7 @@ public class FileHandler {
 
     private final RSyntaxTextArea textArea; // Use RSyntaxTextArea for syntax highlighting
     private final JFileChooser fileChooser; // to work with the file chooser
+    private boolean isTestEnvironment = false;
 
     // === CLASS METHODS ===
 
@@ -57,10 +56,12 @@ public class FileHandler {
             }
             // Set the content from the string builder in the text area of the GUI to display it
             textArea.setText(content.toString());
+            // Show a success message
+            handleMessage("File read successfully", "Success",  JOptionPane.INFORMATION_MESSAGE, null);
         }
         // If an exception occurs, show an error message
         catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error reading file", "Error", JOptionPane.ERROR_MESSAGE);
+            handleMessage("Error reading file", "Error", JOptionPane.ERROR_MESSAGE, ex);
         }
     }
 
@@ -78,11 +79,13 @@ public class FileHandler {
             }
             // Set the content from the string builder in the text area of the GUI to display it
             textArea.setText(content.toString());
+            // Show a success message
+            handleMessage("ODT file read successfully", "Success", JOptionPane.INFORMATION_MESSAGE, null);
             // If an exception occurs, show an appropriate error message
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error reading file", "Error", JOptionPane.ERROR_MESSAGE);
+            handleMessage("Error reading ODT file", "Error", JOptionPane.ERROR_MESSAGE, e);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Unexpected error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            handleMessage("Unexpected error reading ODT file", "Error", JOptionPane.ERROR_MESSAGE, e);
         }
     }
 
@@ -90,51 +93,36 @@ public class FileHandler {
     public void readRtfFile(File file) {
         // Check if the file exists and is readable
         if (!file.exists() || !file.canRead()) {
-            JOptionPane.showMessageDialog(null, "File does not exist or is not readable", "Error", JOptionPane.ERROR_MESSAGE);
+            if (isTestEnvironment) {
+                System.err.println("File does not exist or is not readable");
+            } else {
+                JOptionPane.showMessageDialog(null, "File does not exist or is not readable", "Error", JOptionPane.ERROR_MESSAGE);
+            }
             return;
         }
 
         // Create the required components for reading the RTF file
-        JTextPane textPane = new JTextPane(); // Create a JTextPane to
-        RTFEditorKit rtfKit = new RTFEditorKit(); // Create an RTF editor kit to handle RTF files
-        textPane.setEditorKit(rtfKit); // 'Set' the RTF editor kit for the text pane in order to read the RTF file
+        JTextPane textPane = new JTextPane();
+        RTFEditorKit rtfKit = new RTFEditorKit();
+        textPane.setEditorKit(rtfKit);
 
-        // Use a try-with-resources block to read the RTF file using a file input stream
         try (FileInputStream inputStream = new FileInputStream(file)) {
-            // Use the RTF editor kit to read the content of the RTF file (via the input stream) into the JTextPane
             rtfKit.read(inputStream, textPane.getDocument(), 0);
-            // Extract the text from the JTextPane and store it in a string
             String extractedText = textPane.getDocument().getText(0, textPane.getDocument().getLength());
-            // Check if the extracted text is null or empty
             if (extractedText != null && !extractedText.isEmpty()) {
-                // If the extracted text is not null or empty, create a StringBuilder to store the content
                 StringBuilder content = new StringBuilder(extractedText);
-            // Set the content from the StringBuilder to the text area of the GUI to display it
-            textArea.setText(content.toString());
-            // If an exception occurs, show an error message
-        } else {
-            JOptionPane.showMessageDialog(null, "No content found in the RTF file", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        // Catch any exceptions that may occur during the reading of the RTF file and display an appropriate error message
-        } catch (IOException ex) {
-            System.err.println("IOException while reading RTF file: " + ex.getMessage());
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error reading RTF file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (BadLocationException ex) {
-            System.err.println("BadLocationException while reading RTF file: " + ex.getMessage());
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error processing RTF content: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                textArea.setText(content.toString());
+                handleMessage("RTF file read successfully", "Success", JOptionPane.INFORMATION_MESSAGE, null);
+            } else {
+                handleMessage("No content found in the RTF file", "Warning", JOptionPane.WARNING_MESSAGE, null);
+            }
+        } catch (IOException | BadLocationException ex) {
+            handleMessage("Error reading RTF file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, ex);
         }
     }
 
     // A method to read source code files with syntax highlighting
     public void readSourceCodeFile(File file, String syntaxStyle) {
-        // Check if the file exists and is readable
-        if (!file.exists() || !file.canRead()) {
-            // Show an error message if the file does not exist or is not readable
-            JOptionPane.showMessageDialog(null, "File does not exist or is not readable", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
         // Use a try-with-resources block to read the file using a buffered reader
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             // Create a string builder to store the content and a string to store each line of the file
@@ -148,27 +136,24 @@ public class FileHandler {
             textArea.setSyntaxEditingStyle(syntaxStyle);
             // Set the content from the string builder in the text area of the GUI to display it
             textArea.setText(content.toString());
-            // If an exception occurs, show an error message
+            // Show a success message if the file is read successfully
+            handleMessage("Source code file read successfully", "Success", JOptionPane.INFORMATION_MESSAGE, null);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error reading file", "Error", JOptionPane.ERROR_MESSAGE);
+            // Show an error message if an exception occurs
+            handleMessage("Error reading source code file", "Error", JOptionPane.ERROR_MESSAGE, ex);
         }
     }
 
     // A method to handle the 'Save' action
     public void saveTxtFile(File file) {
-        // Use a try-with-resources block to write the content of the text area to the file using a buffered writer object
+        // Use a try-with-resources block to write the content of the text area to the file using a buffered writer
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            // Write the text content from the text area to the writer object
             writer.write(textArea.getText());
             // Show a success message if the file is saved successfully
-            //JOptionPane.showMessageDialog(null, "File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-            // Show a success message if the file is saved successfully (automatically closes after 2 seconds)
-            showAutoCloseDialog("File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-            // If an exception occurs, show an error message
+            handleMessage("File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE, null);
         } catch (IOException ex) {
-            //JOptionPane.showMessageDialog(null, "Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
-            // Show an error message if an exception occurs (automatically closes after 2 seconds)
-            showAutoCloseDialog("Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
+            // Show an error message if an exception occurs
+            handleMessage("Error saving file", "Error", JOptionPane.ERROR_MESSAGE, ex);
         }
     }
 
@@ -202,4 +187,25 @@ public class FileHandler {
         // Show the dialog
         dialog.setVisible(true);
     }
+
+    public void handleMessage(String message, String title, int messageType, Exception e) {
+        if (isTestEnvironment) {
+            if (messageType == JOptionPane.ERROR_MESSAGE) {
+                System.err.println(title + ": " + message);
+                if (e != null) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println(title + ": " + message);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, message, title, messageType);
+        }
+    }
+
+    // A method to set the test environment flag for the file handler to enable/disable dialog messages
+    public void setTestEnvironment(boolean isTest) {
+        this.isTestEnvironment = isTest;
+    }
+
 }
