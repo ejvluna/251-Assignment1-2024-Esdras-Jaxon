@@ -25,13 +25,19 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    # Specify the Test Resources folder
-    - name: List test resources
-      run: ls -R src/test/resources
-
     # Build the project with Maven
     - name: Build with Maven
       run: mvn -f TextEditor/pom.xml clean install
+
+    # Debug directory structure
+    - name: Debug directory structure
+      run: |
+        pwd
+        ls -R
+
+    # List test resources
+    - name: List test resources
+      run: ls -R TextEditor/src/test/resources
 
     # Run tests with Maven
     - name: Run tests
