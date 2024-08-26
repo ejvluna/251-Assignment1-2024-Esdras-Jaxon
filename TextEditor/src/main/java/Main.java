@@ -1,6 +1,6 @@
 // Import the SwingUtilities class to create a new thread for the Swing GUI
-import javax.swing.SwingUtilities;
-import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import javax.swing.SwingUtilities; // to create a new thread for the Swing GUI
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme; // to set and apply FlatLaf Theme
 
 // A class to encapsulate the main method of the text editor application
 public class Main {

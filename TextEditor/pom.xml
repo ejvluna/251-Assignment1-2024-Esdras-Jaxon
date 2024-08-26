@@ -74,6 +74,24 @@
             <version>3.5.1</version>
         </dependency>
 
+        <!-- To use the JUnit library for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.0</version>
+            <!-- find latest version: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- To use the JUnit Jupiter Engine for running JUnit 5 tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.0</version>
+            <!-- find latest version: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <!-- Build Configuration: (Optional) Customizes the build process. -->
@@ -99,6 +117,24 @@
                     <mainClass>TextEditor</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <!-- Plugin for running JUnit 5 tests when building the project -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.4.0</version>
+                <!-- Get the latest version: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <configuration>
+                    <includes>
+                        <!-- Include all test classes that end with "Tests" or "Test" from the src/test/java directory -->
+                        <include>**/*Tests.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <!-- Disable GUI tests by setting the java.awt.headless system property -->
+                    <argLine>-Djava.awt.headless=true</argLine>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 

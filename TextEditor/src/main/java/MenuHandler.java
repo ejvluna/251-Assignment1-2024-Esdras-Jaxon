@@ -180,6 +180,11 @@ public class MenuHandler {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = textEditor.getFileChooser().getSelectedFile();
             String filePath = selectedFile.getAbsolutePath();
+            // Check if the file exists and is readable
+            if (!selectedFile.exists() || !selectedFile.canRead()) {
+                fileHandler.handleMessage("File does not exist or is not readable", "Error", JOptionPane.ERROR_MESSAGE, null);
+                return;
+            }
             // Determine the file type based on the file extension and call the appropriate file handler method to open the file
             switch (getFileExtension(filePath)) {
                 case "txt": // If the file type is 'txt', call the readTxtFile method
@@ -211,7 +216,8 @@ public class MenuHandler {
         } catch (Exception ex) {
             System.err.println("Unexpected error in handleOpenAction: " + ex.getMessage());
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(textEditor, "An unexpected error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(textEditor, "An unexpected error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            fileHandler.handleMessage("An unexpected error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, ex);
         }
     }
     // A helper method to handle the 'Save' menu item action
