@@ -11,6 +11,7 @@ import javax.swing.text.BadLocationException; // to handle bad location exceptio
 import javax.swing.text.rtf.RTFEditorKit; // to handle RTF files
 
 // Import Java input/output classes for file handling (wildcard import due to number of required classes)
+import java.awt.*;
 import java.io.*; // to work with input/output files
 import javax.swing.*;
 
@@ -42,6 +43,7 @@ public class FileHandler {
     public FileHandler(RSyntaxTextArea textArea, JFileChooser fileChooser) {
         this.textArea = textArea;
         this.fileChooser = fileChooser;
+        this.isTestEnvironment = GraphicsEnvironment.isHeadless();
     }
 
     // A method to handle the 'Open' action for .txt files
@@ -189,7 +191,7 @@ public class FileHandler {
     }
 
     public void handleMessage(String message, String title, int messageType, Exception e) {
-        if (isTestEnvironment) {
+        if (isTestEnvironment || GraphicsEnvironment.isHeadless()) {
             if (messageType == JOptionPane.ERROR_MESSAGE) {
                 System.err.println(title + ": " + message);
                 if (e != null) {
