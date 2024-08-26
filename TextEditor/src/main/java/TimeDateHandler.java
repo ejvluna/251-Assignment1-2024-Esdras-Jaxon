@@ -26,6 +26,7 @@ public class TimeDateHandler {
         this.textArea = textArea;
     } // end of constructor
 
+
     // A method to insert the current time and date at the beginning of the text area
     public void insertCurrentTimeDate() {
         // Use the SwingUtilities.invokeLater method to update the Swing components in a thread-safe manner

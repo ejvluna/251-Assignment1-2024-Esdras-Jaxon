@@ -12,6 +12,9 @@ import javax.swing.text.rtf.RTFEditorKit; // to handle RTF files
 
 // Import Java input/output classes for file handling (wildcard import due to number of required classes)
 import java.io.*; // to work with input/output files
+import javax.swing.*;
+import javax.swing.Timer; // to work with timers
+
 
 // Import RSyntaxTextArea classes for syntax highlighting
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
@@ -158,10 +161,14 @@ public class FileHandler {
             // Write the text content from the text area to the writer object
             writer.write(textArea.getText());
             // Show a success message if the file is saved successfully
-            JOptionPane.showMessageDialog(null, "File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            // Show a success message if the file is saved successfully (automatically closes after 2 seconds)
+            showAutoCloseDialog("File saved successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             // If an exception occurs, show an error message
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
+            // Show an error message if an exception occurs (automatically closes after 2 seconds)
+            showAutoCloseDialog("Error saving file", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -169,5 +176,30 @@ public class FileHandler {
     public void exportToPdf(File file) {
         // Call the PDF exporter class method to export the text content as a PDF file
         PDFExporter.exportToPdf(file, textArea.getText());
+    }
+
+    // A getter method to retrieve the text area associated with the file handler for external access
+    public RSyntaxTextArea getTextArea() {
+        return textArea;
+    }
+
+    // Helper method to show a dialog that automatically closes after a set time (Implemented to avoid blocking the UI during automated tests as unable to implement 'mock' dialog)
+    private void showAutoCloseDialog(String message, String title, int messageType) {
+        final JOptionPane optionPane = new JOptionPane(message, messageType, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+        final JDialog dialog = optionPane.createDialog(title);
+        // Set up a thread to close the dialog after 2 seconds
+        Thread closeThread = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // Close the dialog using the event dispatch thread
+            SwingUtilities.invokeLater(dialog::dispose);
+        });
+        // Start the thread to close the dialog
+        closeThread.start();
+        // Show the dialog
+        dialog.setVisible(true);
     }
 }
