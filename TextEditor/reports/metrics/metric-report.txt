@@ -1,0 +1,947 @@
+<METRICS profile="Metrics Report" timestamp="Tue, 27 Aug 2024 16:27:45 NZST">
+	<METRIC category="Method" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured="AboutHandler.AboutHandler()" value="3.0"/>
+		<VALUE measured="AboutHandler.getMessage()" value="1.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="1.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="1.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="1.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="5.0"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="1.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="11.0"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="5.0"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="2.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="1.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="1.0"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="9.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="1.0"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="6.0"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="1.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="2.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="1.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="0.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="7.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="3.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="8.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="8.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="4.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="1.0"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="5.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="2.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="8.0"/>
+		<VALUE measured="Main.main(String[])" value="7.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="4.0"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="5.0"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="7.0"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="2.0"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="4.0"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="2.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="5.0"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="2.0"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="2.0"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="2.0"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="15.0"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="2.0"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="2.0"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="3.0"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="14.0"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="3.0"/>
+		<VALUE measured="PrintHandler.print()" value="4.0"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="4.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="1.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="13.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="13.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="5.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="1.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="4.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="4.0"/>
+		<VALUE measured="TextEditor.TextEditor()" value="12.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="1.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="1.0"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="2.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="7.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="1.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="5.0"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="1.0"/>
+		<VALUE measured="ViewHandler.copy()" value="1.0"/>
+		<VALUE measured="ViewHandler.cut()" value="1.0"/>
+		<VALUE measured="ViewHandler.paste()" value="1.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="1.0"/>
+	</METRIC>
+	<METRIC category="Method" name="Javadoc lines of code" abbreviation="JLOC">
+		<VALUE measured="AboutHandler.AboutHandler()" value="0.0"/>
+		<VALUE measured="AboutHandler.getMessage()" value="0.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="0.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="0.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="0.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="0.0"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="0.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="0.0"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="0.0"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="0.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="0.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="0.0"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="0.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="0.0"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="0.0"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="0.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="0.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="0.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="0.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="0.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="0.0"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="0.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="0.0"/>
+		<VALUE measured="Main.main(String[])" value="0.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="0.0"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="0.0"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="0.0"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="0.0"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="0.0"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="0.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="0.0"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="0.0"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="0.0"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="0.0"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="0.0"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="0.0"/>
+		<VALUE measured="PrintHandler.print()" value="0.0"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="0.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="0.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="0.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="0.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="0.0"/>
+		<VALUE measured="TextEditor.TextEditor()" value="0.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="0.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="0.0"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="0.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="0.0"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="0.0"/>
+		<VALUE measured="ViewHandler.copy()" value="0.0"/>
+		<VALUE measured="ViewHandler.cut()" value="0.0"/>
+		<VALUE measured="ViewHandler.paste()" value="0.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="0.0"/>
+	</METRIC>
+	<METRIC category="Method" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="AboutHandler.AboutHandler()" value="6.0"/>
+		<VALUE measured="AboutHandler.getMessage()" value="4.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="4.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="4.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="4.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="13.0"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="4.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="13.0"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="16.0"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="4.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="4.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="4.0"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="23.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="4.0"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="19.0"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="6.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="5.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="4.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="14.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="23.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="29.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="22.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="20.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="12.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="4.0"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="19.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="9.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="4.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="21.0"/>
+		<VALUE measured="Main.main(String[])" value="16.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="12.0"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="19.0"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="27.0"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="7.0"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="15.0"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="7.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="24.0"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="6.0"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="4.0"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="4.0"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="4.0"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="10.0"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="50.0"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="4.0"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="5.0"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="16.0"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="4.0"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="6.0"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="34.0"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="4.0"/>
+		<VALUE measured="PrintHandler.print()" value="15.0"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="6.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="4.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="22.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="22.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="13.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="6.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="12.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="12.0"/>
+		<VALUE measured="TextEditor.TextEditor()" value="21.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="4.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="4.0"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="4.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="14.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="6.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="15.0"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="4.0"/>
+		<VALUE measured="ViewHandler.copy()" value="4.0"/>
+		<VALUE measured="ViewHandler.cut()" value="4.0"/>
+		<VALUE measured="ViewHandler.paste()" value="4.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="4.0"/>
+	</METRIC>
+	<METRIC category="Method" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured="AboutHandler.AboutHandler()" value="4.0"/>
+		<VALUE measured="AboutHandler.getMessage()" value="3.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="3.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="3.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="3.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="8.0"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="3.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="9.0"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="12.0"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="3.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="3.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="3.0"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="16.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="3.0"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="13.0"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="5.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="3.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="3.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="14.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="16.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="26.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="14.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="14.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="8.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="3.0"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="14.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="7.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="3.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="5.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="16.0"/>
+		<VALUE measured="Main.main(String[])" value="9.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="9.0"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="14.0"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="20.0"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="5.0"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="11.0"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="5.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="19.0"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="4.0"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="7.0"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="42.0"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="11.0"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="4.0"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="25.0"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="3.0"/>
+		<VALUE measured="PrintHandler.print()" value="12.0"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="5.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="3.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="17.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="17.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="8.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="5.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="8.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="8.0"/>
+		<VALUE measured="TextEditor.TextEditor()" value="16.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="3.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="3.0"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="3.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="8.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="5.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="10.0"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="3.0"/>
+		<VALUE measured="ViewHandler.copy()" value="3.0"/>
+		<VALUE measured="ViewHandler.cut()" value="3.0"/>
+		<VALUE measured="ViewHandler.paste()" value="3.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="3.0"/>
+	</METRIC>
+	<METRIC category="Method" name="Number of overriding methods" abbreviation="OVER">
+		<VALUE measured="AboutHandler.getMessage()" value="0.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="0.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="0.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="0.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="0.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="0.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="0.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="0.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="0.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="0.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="0.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="0.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="0.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="0.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="0.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="0.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="0.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="0.0"/>
+		<VALUE measured="PrintHandler.print()" value="0.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="0.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="0.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="0.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="0.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="0.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="0.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="0.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="0.0"/>
+		<VALUE measured="ViewHandler.copy()" value="0.0"/>
+		<VALUE measured="ViewHandler.cut()" value="0.0"/>
+		<VALUE measured="ViewHandler.paste()" value="0.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="0.0"/>
+	</METRIC>
+	<METRIC category="Method" name="Relative lines of code" abbreviation="RLOC">
+		<VALUE measured="AboutHandler.AboutHandler()" value="0.12"/>
+		<VALUE measured="AboutHandler.getMessage()" value="0.08"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="0.08"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="0.08"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="0.08"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="0.26"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="0.08695652173913043"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="0.2826086956521739"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="0.34782608695652173"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="0.056338028169014086"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="0.056338028169014086"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="0.056338028169014086"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="0.323943661971831"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="0.056338028169014086"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="0.2676056338028169"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="0.034482758620689655"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="0.028735632183908046"/>
+		<VALUE measured="FileHandler.getTextArea()" value="0.022988505747126436"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="0.08045977011494253"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="0.13218390804597702"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="0.16666666666666666"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="0.12643678160919541"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="0.11494252873563218"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="0.06896551724137931"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="0.022988505747126436"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="0.10919540229885058"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="0.08737864077669903"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="0.038834951456310676"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="0.06796116504854369"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="0.20388349514563106"/>
+		<VALUE measured="Main.main(String[])" value="0.8421052631578947"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="0.043795620437956206"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="0.06934306569343066"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="0.09854014598540146"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="0.025547445255474453"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="0.05474452554744526"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="0.025547445255474453"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="0.08759124087591241"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="0.021897810218978103"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="0.014598540145985401"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="0.014598540145985401"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="0.014598540145985401"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="0.0364963503649635"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="0.18248175182481752"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="0.014598540145985401"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="0.01824817518248175"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="0.058394160583941604"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="0.014598540145985401"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="0.021897810218978103"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="0.723404255319149"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="0.11764705882352941"/>
+		<VALUE measured="PrintHandler.print()" value="0.4411764705882353"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="0.07142857142857142"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="0.047619047619047616"/>
+		<VALUE measured="SearchHandler.search(String)" value="0.2619047619047619"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="0.2619047619047619"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="0.15476190476190477"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="0.15384615384615385"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="0.3076923076923077"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="0.3076923076923077"/>
+		<VALUE measured="TextEditor.TextEditor()" value="0.4666666666666667"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="0.08888888888888889"/>
+		<VALUE measured="TextEditor.getTextArea()" value="0.08888888888888889"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="0.125"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="0.4375"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="0.1935483870967742"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="0.4838709677419355"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="0.12121212121212122"/>
+		<VALUE measured="ViewHandler.copy()" value="0.12121212121212122"/>
+		<VALUE measured="ViewHandler.cut()" value="0.12121212121212122"/>
+		<VALUE measured="ViewHandler.paste()" value="0.12121212121212122"/>
+		<VALUE measured="ViewHandler.selectAll()" value="0.12121212121212122"/>
+	</METRIC>
+	<METRIC category="Method" name="Cyclomatic complexity" abbreviation="v(G)">
+		<VALUE measured="AboutHandler.AboutHandler()" value="1.0"/>
+		<VALUE measured="AboutHandler.getMessage()" value="1.0"/>
+		<VALUE measured="AboutHandler.getTeamMembers()" value="1.0"/>
+		<VALUE measured="AboutHandler.setMessage(String)" value="1.0"/>
+		<VALUE measured="AboutHandler.setTeamMembers(String[])" value="1.0"/>
+		<VALUE measured="AboutHandler.showAboutDialog()" value="2.0"/>
+		<VALUE measured="ConfigApplier.ConfigApplier(ConfigLoader)" value="1.0"/>
+		<VALUE measured="ConfigApplier.applyConfig(RSyntaxTextArea)" value="1.0"/>
+		<VALUE measured="ConfigApplier.getColorFromString(String)" value="3.0"/>
+		<VALUE measured="ConfigLoader.ConfigLoader(String)" value="1.0"/>
+		<VALUE measured="ConfigLoader.getFontColor()" value="1.0"/>
+		<VALUE measured="ConfigLoader.getFontSize()" value="1.0"/>
+		<VALUE measured="ConfigLoader.getNestedValue(String, Class&lt;T&gt;)" value="5.0"/>
+		<VALUE measured="ConfigLoader.getTextFormat()" value="1.0"/>
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="3.0"/>
+		<VALUE measured="FileHandler.FileHandler(RSyntaxTextArea, JFileChooser)" value="1.0"/>
+		<VALUE measured="FileHandler.exportToPdf(File)" value="1.0"/>
+		<VALUE measured="FileHandler.getTextArea()" value="1.0"/>
+		<VALUE measured="FileHandler.handleMessage(String, String, int, Exception)" value="5.0"/>
+		<VALUE measured="FileHandler.readOdtFile(File)" value="4.0"/>
+		<VALUE measured="FileHandler.readRtfFile(File)" value="7.0"/>
+		<VALUE measured="FileHandler.readSourceCodeFile(File, String)" value="3.0"/>
+		<VALUE measured="FileHandler.readTxtFile(File)" value="3.0"/>
+		<VALUE measured="FileHandler.saveTxtFile(File)" value="2.0"/>
+		<VALUE measured="FileHandler.setTestEnvironment(boolean)" value="1.0"/>
+		<VALUE measured="FileHandler.showAutoCloseDialog(String, String, int)" value="2.0"/>
+		<VALUE measured="FileHandlerTests.setUp()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.tearDown()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadCppFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadJavaFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadJsFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadOdtFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadPyFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadRtfFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testReadTxtFile()" value="1.0"/>
+		<VALUE measured="FileHandlerTests.testSaveTxtFile()" value="2.0"/>
+		<VALUE measured="Main.main(String[])" value="1.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor, FileHandler)" value="1.0"/>
+		<VALUE measured="MenuHandler.addEditMenuItems(JMenu)" value="1.0"/>
+		<VALUE measured="MenuHandler.addFileMenuItems(JMenu)" value="1.0"/>
+		<VALUE measured="MenuHandler.addHelpMenuItems(JMenu)" value="1.0"/>
+		<VALUE measured="MenuHandler.addSearchMenuItems(JMenu)" value="1.0"/>
+		<VALUE measured="MenuHandler.addViewMenuItems(JMenu)" value="1.0"/>
+		<VALUE measured="MenuHandler.createMenuBar()" value="1.0"/>
+		<VALUE measured="MenuHandler.getFileExtension(String)" value="2.0"/>
+		<VALUE measured="MenuHandler.handleAboutAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleClearHighlightsAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleCopyAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleCutAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleExportPdfAction()" value="2.0"/>
+		<VALUE measured="MenuHandler.handleFindAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleFindFullWordAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleNewAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleOpenAction()" value="12.0"/>
+		<VALUE measured="MenuHandler.handlePasteAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handlePrintAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleQuitAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleSaveAction()" value="3.0"/>
+		<VALUE measured="MenuHandler.handleSelectAllAction()" value="1.0"/>
+		<VALUE measured="MenuHandler.handleTimeDateAction()" value="1.0"/>
+		<VALUE measured="PDFExporter.exportToPdf(File, String)" value="4.0"/>
+		<VALUE measured="PrintHandler.PrintHandler(JTextArea)" value="1.0"/>
+		<VALUE measured="PrintHandler.print()" value="3.0"/>
+		<VALUE measured="SearchHandler.SearchHandler(JTextArea)" value="1.0"/>
+		<VALUE measured="SearchHandler.clearHighlights()" value="1.0"/>
+		<VALUE measured="SearchHandler.search(String)" value="3.0"/>
+		<VALUE measured="SearchHandler.searchFullWord(String)" value="3.0"/>
+		<VALUE measured="SearchHandler.showSearchDialog(boolean)" value="4.0"/>
+		<VALUE measured="SearchHandlerTests.setUp()" value="1.0"/>
+		<VALUE measured="SearchHandlerTests.testSearch()" value="1.0"/>
+		<VALUE measured="SearchHandlerTests.testSearchFullWord()" value="1.0"/>
+		<VALUE measured="TextEditor.TextEditor()" value="1.0"/>
+		<VALUE measured="TextEditor.getFileChooser()" value="1.0"/>
+		<VALUE measured="TextEditor.getTextArea()" value="1.0"/>
+		<VALUE measured="TimeDateHandler.TimeDateHandler(JTextArea)" value="1.0"/>
+		<VALUE measured="TimeDateHandler.insertCurrentTimeDate()" value="1.0"/>
+		<VALUE measured="TimeDateHandlerTests.setUp()" value="1.0"/>
+		<VALUE measured="TimeDateHandlerTests.testInsertCurrentTimeDate()" value="2.0"/>
+		<VALUE measured="ViewHandler.ViewHandler(RSyntaxTextArea)" value="1.0"/>
+		<VALUE measured="ViewHandler.copy()" value="1.0"/>
+		<VALUE measured="ViewHandler.cut()" value="1.0"/>
+		<VALUE measured="ViewHandler.paste()" value="1.0"/>
+		<VALUE measured="ViewHandler.selectAll()" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Coupling between objects" abbreviation="CBO">
+		<VALUE measured="AboutHandler" value="1.0"/>
+		<VALUE measured="ConfigApplier" value="2.0"/>
+		<VALUE measured="ConfigLoader" value="3.0"/>
+		<VALUE measured="FileHandler" value="4.0"/>
+		<VALUE measured="FileHandlerTests" value="1.0"/>
+		<VALUE measured="Main" value="3.0"/>
+		<VALUE measured="MenuHandler" value="7.0"/>
+		<VALUE measured="PDFExporter" value="1.0"/>
+		<VALUE measured="PrintHandler" value="1.0"/>
+		<VALUE measured="SearchHandler" value="2.0"/>
+		<VALUE measured="SearchHandlerTests" value="1.0"/>
+		<VALUE measured="TextEditor" value="3.0"/>
+		<VALUE measured="TimeDateHandler" value="2.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="1.0"/>
+		<VALUE measured="ViewHandler" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured="AboutHandler" value="25.0"/>
+		<VALUE measured="ConfigApplier" value="27.0"/>
+		<VALUE measured="ConfigLoader" value="31.0"/>
+		<VALUE measured="FileHandler" value="53.0"/>
+		<VALUE measured="FileHandlerTests" value="32.0"/>
+		<VALUE measured="Main" value="8.0"/>
+		<VALUE measured="MenuHandler" value="101.0"/>
+		<VALUE measured="PDFExporter" value="25.0"/>
+		<VALUE measured="PrintHandler" value="20.0"/>
+		<VALUE measured="SearchHandler" value="51.0"/>
+		<VALUE measured="SearchHandlerTests" value="14.0"/>
+		<VALUE measured="TextEditor" value="28.0"/>
+		<VALUE measured="TimeDateHandler" value="21.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="12.0"/>
+		<VALUE measured="ViewHandler" value="16.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Depth of inheritance tree" abbreviation="DIT">
+		<VALUE measured="AboutHandler" value="1.0"/>
+		<VALUE measured="ConfigApplier" value="1.0"/>
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="FileHandler" value="1.0"/>
+		<VALUE measured="FileHandlerTests" value="1.0"/>
+		<VALUE measured="Main" value="1.0"/>
+		<VALUE measured="MenuHandler" value="1.0"/>
+		<VALUE measured="PDFExporter" value="1.0"/>
+		<VALUE measured="PrintHandler" value="1.0"/>
+		<VALUE measured="SearchHandler" value="1.0"/>
+		<VALUE measured="SearchHandlerTests" value="1.0"/>
+		<VALUE measured="TextEditor" value="6.0"/>
+		<VALUE measured="TimeDateHandler" value="1.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="1.0"/>
+		<VALUE measured="ViewHandler" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Javadoc lines of code" abbreviation="JLOC">
+		<VALUE measured="AboutHandler" value="7.0"/>
+		<VALUE measured="ConfigApplier" value="7.0"/>
+		<VALUE measured="ConfigLoader" value="7.0"/>
+		<VALUE measured="FileHandler" value="8.0"/>
+		<VALUE measured="FileHandlerTests" value="3.0"/>
+		<VALUE measured="Main" value="0.0"/>
+		<VALUE measured="MenuHandler" value="7.0"/>
+		<VALUE measured="PDFExporter" value="9.0"/>
+		<VALUE measured="PrintHandler" value="8.0"/>
+		<VALUE measured="SearchHandler" value="9.0"/>
+		<VALUE measured="SearchHandlerTests" value="3.0"/>
+		<VALUE measured="TextEditor" value="7.0"/>
+		<VALUE measured="TimeDateHandler" value="8.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="3.0"/>
+		<VALUE measured="ViewHandler" value="7.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Number of JUnit test methods" abbreviation="JTM">
+		<VALUE measured="AboutHandler" value="0.0"/>
+		<VALUE measured="ConfigApplier" value="0.0"/>
+		<VALUE measured="ConfigLoader" value="0.0"/>
+		<VALUE measured="FileHandler" value="0.0"/>
+		<VALUE measured="FileHandlerTests" value="0.0"/>
+		<VALUE measured="Main" value="0.0"/>
+		<VALUE measured="MenuHandler" value="0.0"/>
+		<VALUE measured="PDFExporter" value="0.0"/>
+		<VALUE measured="PrintHandler" value="0.0"/>
+		<VALUE measured="SearchHandler" value="0.0"/>
+		<VALUE measured="SearchHandlerTests" value="0.0"/>
+		<VALUE measured="TextEditor" value="0.0"/>
+		<VALUE measured="TimeDateHandler" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="0.0"/>
+		<VALUE measured="ViewHandler" value="0.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Lack of Cohesion of Methods" abbreviation="LCOM">
+		<VALUE measured="AboutHandler" value="1.0"/>
+		<VALUE measured="ConfigApplier" value="1.0"/>
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="FileHandler" value="2.0"/>
+		<VALUE measured="FileHandlerTests" value="2.0"/>
+		<VALUE measured="Main" value="1.0"/>
+		<VALUE measured="MenuHandler" value="1.0"/>
+		<VALUE measured="PDFExporter" value="1.0"/>
+		<VALUE measured="PrintHandler" value="1.0"/>
+		<VALUE measured="SearchHandler" value="1.0"/>
+		<VALUE measured="SearchHandlerTests" value="1.0"/>
+		<VALUE measured="TextEditor" value="2.0"/>
+		<VALUE measured="TimeDateHandler" value="1.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="1.0"/>
+		<VALUE measured="ViewHandler" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="AboutHandler" value="50.0"/>
+		<VALUE measured="ConfigApplier" value="46.0"/>
+		<VALUE measured="ConfigLoader" value="71.0"/>
+		<VALUE measured="FileHandler" value="174.0"/>
+		<VALUE measured="FileHandlerTests" value="103.0"/>
+		<VALUE measured="Main" value="19.0"/>
+		<VALUE measured="MenuHandler" value="274.0"/>
+		<VALUE measured="PDFExporter" value="47.0"/>
+		<VALUE measured="PrintHandler" value="34.0"/>
+		<VALUE measured="SearchHandler" value="84.0"/>
+		<VALUE measured="SearchHandlerTests" value="39.0"/>
+		<VALUE measured="TextEditor" value="45.0"/>
+		<VALUE measured="TimeDateHandler" value="32.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="31.0"/>
+		<VALUE measured="ViewHandler" value="33.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured="AboutHandler" value="28.0"/>
+		<VALUE measured="ConfigApplier" value="27.0"/>
+		<VALUE measured="ConfigLoader" value="44.0"/>
+		<VALUE measured="FileHandler" value="125.0"/>
+		<VALUE measured="FileHandlerTests" value="74.0"/>
+		<VALUE measured="Main" value="11.0"/>
+		<VALUE measured="MenuHandler" value="193.0"/>
+		<VALUE measured="PDFExporter" value="27.0"/>
+		<VALUE measured="PrintHandler" value="18.0"/>
+		<VALUE measured="SearchHandler" value="55.0"/>
+		<VALUE measured="SearchHandlerTests" value="25.0"/>
+		<VALUE measured="TextEditor" value="26.0"/>
+		<VALUE measured="TimeDateHandler" value="14.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="19.0"/>
+		<VALUE measured="ViewHandler" value="18.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Number of children" abbreviation="NOC">
+		<VALUE measured="AboutHandler" value="0.0"/>
+		<VALUE measured="ConfigApplier" value="0.0"/>
+		<VALUE measured="ConfigLoader" value="0.0"/>
+		<VALUE measured="FileHandler" value="0.0"/>
+		<VALUE measured="FileHandlerTests" value="0.0"/>
+		<VALUE measured="Main" value="0.0"/>
+		<VALUE measured="MenuHandler" value="0.0"/>
+		<VALUE measured="PDFExporter" value="0.0"/>
+		<VALUE measured="PrintHandler" value="0.0"/>
+		<VALUE measured="SearchHandler" value="0.0"/>
+		<VALUE measured="SearchHandlerTests" value="0.0"/>
+		<VALUE measured="TextEditor" value="0.0"/>
+		<VALUE measured="TimeDateHandler" value="0.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="0.0"/>
+		<VALUE measured="ViewHandler" value="0.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Response for class" abbreviation="RFC">
+		<VALUE measured="AboutHandler" value="10.0"/>
+		<VALUE measured="ConfigApplier" value="14.0"/>
+		<VALUE measured="ConfigLoader" value="20.0"/>
+		<VALUE measured="FileHandler" value="54.0"/>
+		<VALUE measured="FileHandlerTests" value="35.0"/>
+		<VALUE measured="Main" value="8.0"/>
+		<VALUE measured="MenuHandler" value="69.0"/>
+		<VALUE measured="PDFExporter" value="20.0"/>
+		<VALUE measured="PrintHandler" value="5.0"/>
+		<VALUE measured="SearchHandler" value="23.0"/>
+		<VALUE measured="SearchHandlerTests" value="9.0"/>
+		<VALUE measured="TextEditor" value="21.0"/>
+		<VALUE measured="TimeDateHandler" value="7.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="11.0"/>
+		<VALUE measured="ViewHandler" value="9.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Weighted method complexity" abbreviation="WMC">
+		<VALUE measured="AboutHandler" value="7.0"/>
+		<VALUE measured="ConfigApplier" value="3.0"/>
+		<VALUE measured="ConfigLoader" value="10.0"/>
+		<VALUE measured="FileHandler" value="20.0"/>
+		<VALUE measured="FileHandlerTests" value="11.0"/>
+		<VALUE measured="Main" value="1.0"/>
+		<VALUE measured="MenuHandler" value="37.0"/>
+		<VALUE measured="PDFExporter" value="3.0"/>
+		<VALUE measured="PrintHandler" value="3.0"/>
+		<VALUE measured="SearchHandler" value="9.0"/>
+		<VALUE measured="SearchHandlerTests" value="3.0"/>
+		<VALUE measured="TextEditor" value="3.0"/>
+		<VALUE measured="TimeDateHandler" value="2.0"/>
+		<VALUE measured="TimeDateHandlerTests" value="2.0"/>
+		<VALUE measured="ViewHandler" value="5.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured="" value="0.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Comment lines of code (recursive)" abbreviation="CLOC(rec)">
+		<VALUE measured="" value="464.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Javadoc lines of code" abbreviation="JLOC">
+		<VALUE measured="" value="93.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Javadoc lines of code (recursive)" abbreviation="JLOC(rec)">
+		<VALUE measured="" value="93.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Number of JUnit test methods" abbreviation="JTM">
+		<VALUE measured="" value="0.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Number of JUnit test methods (recursive)" abbreviation="JTM(rec)">
+		<VALUE measured="" value="0.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="" value="1382.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of code (recursive)" abbreviation="LOC(rec)">
+		<VALUE measured="" value="1382.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of product code" abbreviation="LOCp">
+		<VALUE measured="" value="999.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of product code (recursive)" abbreviation="LOCp(rec)">
+		<VALUE measured="" value="999.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of test code" abbreviation="LOCt">
+		<VALUE measured="" value="383.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Lines of test code (recursive)" abbreviation="LOCt(rec)">
+		<VALUE measured="" value="383.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Number of methods" abbreviation="METH">
+		<VALUE measured="" value="83.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Number of methods (recursive)" abbreviation="METH(rec)">
+		<VALUE measured="" value="83.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured="" value="888.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code (recursive)" abbreviation="NCLOC(rec)">
+		<VALUE measured="" value="888.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
+		<VALUE measured="" value="736.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code (product, recursive)" abbreviation="NCLOCp(rec)">
+		<VALUE measured="" value="736.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
+		<VALUE measured="" value="152.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Non-comment lines of code (test, recursive)" abbreviation="NCLOCt(rec)">
+		<VALUE measured="" value="152.0"/>
+	</METRIC>
+	<METRIC category="Package" name="Average cyclomatic complexity" abbreviation="v(G)avg">
+		<VALUE measured="" value="1.6867469879518073"/>
+	</METRIC>
+	<METRIC category="Package" name="Total cyclomatic complexity" abbreviation="v(G)tot">
+		<VALUE measured="" value="140.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured="TextEditor" value="597.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Javadoc lines of code" abbreviation="JLOC">
+		<VALUE measured="TextEditor" value="93.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Number of JUnit test methods" abbreviation="JTM">
+		<VALUE measured="TextEditor" value="0.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of Groovy" abbreviation="L(Groovy)">
+		<VALUE measured="TextEditor" value="0.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of HTML" abbreviation="L(HTML)">
+		<VALUE measured="TextEditor" value="94.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of Java" abbreviation="L(J)">
+		<VALUE measured="TextEditor" value="1181.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of Kotlin" abbreviation="L(KT)">
+		<VALUE measured="TextEditor" value="0.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of XML" abbreviation="L(XML)">
+		<VALUE measured="TextEditor" value="147.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="TextEditor" value="1656.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of product code" abbreviation="LOCp">
+		<VALUE measured="TextEditor" value="999.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Lines of test code" abbreviation="LOCt">
+		<VALUE measured="TextEditor" value="383.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Number of methods" abbreviation="METH">
+		<VALUE measured="TextEditor" value="83.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured="TextEditor" value="1065.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
+		<VALUE measured="TextEditor" value="652.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
+		<VALUE measured="TextEditor" value="143.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Average cyclomatic complexity" abbreviation="v(G)avg">
+		<VALUE measured="TextEditor" value="1.6867469879518073"/>
+	</METRIC>
+	<METRIC category="Module" name="Total cyclomatic complexity" abbreviation="v(G)tot">
+		<VALUE measured="TextEditor" value="140.0"/>
+	</METRIC>
+	<METRIC category="FileType" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured=".gitignore (GitIgnore)" value="0.0"/>
+		<VALUE measured="C/C++" value="0.0"/>
+		<VALUE measured="Files supported via TextMate bundles" value="0.0"/>
+		<VALUE measured="HTML" value="4.0"/>
+		<VALUE measured="Java" value="552.0"/>
+		<VALUE measured="JavaScript" value="0.0"/>
+		<VALUE measured="Text" value="0.0"/>
+		<VALUE measured="XML" value="36.0"/>
+		<VALUE measured="YAML" value="5.0"/>
+	</METRIC>
+	<METRIC category="FileType" name="Lines of code" abbreviation="LOC">
+		<VALUE measured=".gitignore (GitIgnore)" value="33.0"/>
+		<VALUE measured="C/C++" value="5.0"/>
+		<VALUE measured="Files supported via TextMate bundles" value="4.0"/>
+		<VALUE measured="HTML" value="94.0"/>
+		<VALUE measured="Java" value="1181.0"/>
+		<VALUE measured="JavaScript" value="1.0"/>
+		<VALUE measured="Text" value="182.0"/>
+		<VALUE measured="XML" value="147.0"/>
+		<VALUE measured="YAML" value="9.0"/>
+	</METRIC>
+	<METRIC category="FileType" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured=".gitignore (GitIgnore)" value="33.0"/>
+		<VALUE measured="C/C++" value="5.0"/>
+		<VALUE measured="Files supported via TextMate bundles" value="4.0"/>
+		<VALUE measured="HTML" value="90.0"/>
+		<VALUE measured="Java" value="776.0"/>
+		<VALUE measured="JavaScript" value="1.0"/>
+		<VALUE measured="XML" value="147.0"/>
+		<VALUE measured="YAML" value="9.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Comment lines of code" abbreviation="CLOC">
+		<VALUE measured="project" value="597.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Javadoc lines of code" abbreviation="JLOC">
+		<VALUE measured="project" value="93.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Number of JUnit test methods" abbreviation="JTM">
+		<VALUE measured="project" value="0.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of Groovy" abbreviation="L(Groovy)">
+		<VALUE measured="project" value="0.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of HTML" abbreviation="L(HTML)">
+		<VALUE measured="project" value="94.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of Java" abbreviation="L(J)">
+		<VALUE measured="project" value="1181.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of Kotlin" abbreviation="L(KT)">
+		<VALUE measured="project" value="0.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of XML" abbreviation="L(XML)">
+		<VALUE measured="project" value="147.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="project" value="1656.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of product code" abbreviation="LOCp">
+		<VALUE measured="project" value="999.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Lines of test code" abbreviation="LOCt">
+		<VALUE measured="project" value="383.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Number of methods" abbreviation="METH">
+		<VALUE measured="project" value="83.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Non-comment lines of code" abbreviation="NCLOC">
+		<VALUE measured="project" value="1065.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
+		<VALUE measured="project" value="652.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
+		<VALUE measured="project" value="143.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Average cyclomatic complexity" abbreviation="v(G)avg">
+		<VALUE measured="project" value="1.6867469879518073"/>
+	</METRIC>
+	<METRIC category="Project" name="Total cyclomatic complexity" abbreviation="v(G)tot">
+		<VALUE measured="project" value="140.0"/>
+	</METRIC>
+</METRICS>

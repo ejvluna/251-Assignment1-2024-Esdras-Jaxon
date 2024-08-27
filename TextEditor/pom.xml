@@ -67,6 +67,7 @@
             <artifactId>flatlaf</artifactId>
             <version>3.5.1</version>
         </dependency>
+
         <!-- To have access to the 3rd Party FlatLaf Themes -->
         <dependency>
             <groupId>com.formdev</groupId>
@@ -135,6 +136,27 @@
                 </configuration>
             </plugin>
 
+            <!-- PMD Plugin for generating code metrics and quality reports -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.15.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>pmd</goal> <!-- Runs PMD analysis -->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <rulesets>
+                        <ruleset>rulesets/java/basic.xml</ruleset> <!-- Use Java Basic rules -->
+                    </rulesets>
+                    <targetJdk>17</targetJdk>
+                    <linkXRef>false</linkXRef> <!-- Disable cross-references to other reports -->
+                    <outputDirectory>reports/pmd</outputDirectory> <!-- Specify output directory -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
