@@ -157,6 +157,23 @@
                     <outputDirectory>reports/pmd</outputDirectory> <!-- Specify output directory -->
                 </configuration>
             </plugin>
+
+            <plugin>
+                <!-- Plugin for creating a JAR file with dependencies -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <!-- Get the latest version: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
