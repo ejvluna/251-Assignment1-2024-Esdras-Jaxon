@@ -11,19 +11,18 @@ import java.util.Map; // to store key-value pairs from the configuration file
  * @since 2024-08-23
  */
 
-// A class to encapsulate the attributes and methods of the configuration loader
 public class ConfigLoader {
 
-    // === CLASS ATTRIBUTES ===
+    // ===  ATTRIBUTES ===
     private Map<String, Object> config; // a map to store key-value pairs from the configuration file
 
-    // === CLASS METHODS ===
-
+    // === CONSTRUCTORS ===
     // A non-parameterized constructor to initialize a new configuration loader object
     public ConfigLoader(String configFileName) {
         loadConfig(configFileName); // Load the configuration file from the specified file path
     }
 
+    // === METHODS ===
     // A private method to load the configuration file and store its contents in the map
     private void loadConfig(String filePath) {
         // Use a try-with-resources block to try reading the configuration file
@@ -46,42 +45,29 @@ public class ConfigLoader {
 
     // A getter method to retrieve the text format from the configuration file
     public String getTextFormat() {
-        return getNestedValue("default.textFormat", String.class);
+        return getValue("textFormat", String.class);
     }
 
     // A getter method to retrieve the font size from the configuration file
     public int getFontSize() {
-        return getNestedValue("default.fontSize", Integer.class);
+        return getValue("fontSize", Integer.class);
     }
 
     // A getter method to retrieve the font color from the configuration file
     public String getFontColor() {
-        return getNestedValue("default.fontColor", String.class);
+        return getValue("fontColor", String.class);
     }
 
-    // A generic method to retrieve a nested value from the configuration map
-    @SuppressWarnings("unchecked")
-    private <T> T getNestedValue(String key, Class<T> type) {
-        String[] parts = key.split("\\."); // Split the key into parts using the dot separator
-        Map<String, Object> current = config; // Start with the top-level map
-        // Iterate over the parts of the key to traverse the nested structure
-        for (int i = 0; i < parts.length - 1; i++) {
-            // Get the next level of the nested map based on the current key part
-            current = (Map<String, Object>) current.get(parts[i]);
-            // If the current map is null, throw an exception indicating the key was not found
-            if (current == null) {
-                throw new IllegalStateException("Configuration key not found: " + key);
-            }
-        }
-        // Get the value of the final key part and cast it to the specified type
-        Object value = current.get(parts[parts.length - 1]);
-        // If the value is null or not of the specified type, throw an exception
-        if (value == null || !type.isInstance(value)) {
+    // A generic method to retrieve a value from the configuration map
+    private <T> T getValue(String key, Class<T> type) {
+        // Get the value associated with the specified key from the configuration map
+        Object value = config.get(key);
+        // If the key is missing or the value is not of the expected type, throw an exception
+        if (!type.isInstance(value)) {
             throw new IllegalStateException("Invalid or missing configuration for key: " + key);
         }
-        // Return the value cast to the specified type
+        // Otherwise, cast the value to the specified type and return it
         return type.cast(value);
     }
 }
 
-    // A private method to load the configuration file and store its contents in the map
