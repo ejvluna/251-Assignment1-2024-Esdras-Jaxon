@@ -1,11 +1,8 @@
 // Import Java Swing classes to create the GUI
 import javax.swing.JFrame; // to create a window
 import javax.swing.JFileChooser; // to create a file chooser
-import javax.swing.SwingUtilities; // to work with Swing components
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.*;
-
+import java.awt.Font; // to set the font type and size
+import java.awt.*; // to work with layouts
 // Import RSyntaxTextArea classes for syntax highlighting
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to create a text area with syntax highlighting
 import org.fife.ui.rtextarea.RTextScrollPane; // to create a scrollable text area
@@ -14,24 +11,21 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants; // to set syntax highlightin
 /**
  * The TextEditor class is responsible for creating the GUI used to interact with the text editor application.
  * This class sets up the main components of the text editor, including the text area and file chooser, and initializes the menu bar.
+
  * @author Esdras Luna
  * @version 1.0
  * @since 2024-08-20
  */
 
-// A class to encapsulate the attributes and methods of the text editor application
 public class TextEditor extends JFrame {
 
-    // === CLASS ATTRIBUTES ===
-
-    // Attributes of the text editor class
+    // === ATTRIBUTES ===
     private final JFileChooser fileChooser; // a file chooser for opening/saving files
     private final RSyntaxTextArea textArea = new RSyntaxTextArea(); // a text area for editing text with syntax highlighting
-    //private static ConfigLoader config; // a configuration loader to load settings from a configuration file (e.g. yaml file
 
-    // === CLASS METHODS ===
+    // === CONSTRUCTORS ===
 
-    // A non-parameterized constructor to initialize a new text editor window object
+    // A non-parameterized constructor to initialize a new text editor instance
     public TextEditor() {
         setTitle("Text Editor");
         setSize(800, 600);
@@ -45,17 +39,18 @@ public class TextEditor extends JFrame {
         textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_NONE); // Default to no syntax highlighting
         add(new RTextScrollPane(textArea), BorderLayout.CENTER); // Add the text area to the center of the frame
 
-        // Initialize a new file chooser and file handler for file operations
+        // Initialize a new file chooser, file handler, and menu handler
         fileChooser = new JFileChooser();
         FileHandler fileHandler = new FileHandler(textArea, fileChooser);
         MenuHandler menuHandler = new MenuHandler(this, fileHandler);
-        //config = new ConfigLoader("config.yaml");  // Load the configuration file from the resources directory
 
-        // Set the menu bar created by the menu handler and make it visible
+        // Set the menu bar created by the menu handler to the frame and make it visible
         setJMenuBar(menuHandler.createMenuBar());
         setVisible(true);
 
     } // end of constructor
+
+    // ===  METHODS ===
 
     // A public method to access the file chooser object from other classes (e.g. MenuHandler)
     public JFileChooser getFileChooser() {

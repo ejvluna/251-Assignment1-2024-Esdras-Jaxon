@@ -9,29 +9,31 @@ import java.util.regex.Pattern; // to use regular expression patterns
  * The SearchHandler class provides functionality to search for text within a JTextArea.
  * It includes methods to find and highlight occurrences of a search term.
  * The search can be performed with or without case sensitivity and with or without full word matching.
- *
+
  * @author Esdras Luna
  * @version 1.0
  * @since 2024-08-22
  */
 
-// A class to encapsulate the attributes and methods of the search handler
 public class SearchHandler {
 
-    // === CLASS ATTRIBUTES ===
+    // === ATTRIBUTES ===
     private final JTextArea textArea; // a text area for editing text
     private final Highlighter highlighter; // a highlighter object to store and manage highlights
     private final Highlighter.HighlightPainter painter; // a highlight painter object to specify the color of highlights
 
-    // === CLASS METHODS ===
-
-    // A parameterized constructor to initialize a new search handler object
+    // === CONSTRUCTORS ===
+    // A parameterized constructor to initialize a new search handler instance with a text area
     public SearchHandler(JTextArea textArea) {
-        this.textArea = textArea; // Assign the text area passed as a parameter to the class attribute
-        this.highlighter = textArea.getHighlighter(); // Get the highlighter object from the text area
-        this.painter = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN); // Create a new highlight painter with a specific color
+        // Initialize the text area from the parameter
+        this.textArea = textArea;
+        // Initialize the highlighter from the text area
+        this.highlighter = textArea.getHighlighter();
+        // Initialize the highlight painter with a default color
+        this.painter = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
     }
 
+    // === METHODS ===
     // A method to show a search dialog and display the number of occurrences found
     public void showSearchDialog(boolean fullWord) {
         // Use a JOptionPane to prompt the user for a search term

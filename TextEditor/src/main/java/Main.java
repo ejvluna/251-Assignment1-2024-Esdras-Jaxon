@@ -2,7 +2,16 @@
 import javax.swing.SwingUtilities; // to create a new thread for the Swing GUI
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme; // to set and apply FlatLaf Theme
 
-// A class to encapsulate the main method of the text editor application
+/**
+ * The `Main` class encapsulates the main method of the text editor application.
+ * It initializes the application by loading configuration settings, setting up the theme,
+ * and creating the main text editor window.
+
+ * \@author Esdras Luna
+ * \@version 1.0
+ * \@since 2024-08-23
+ */
+
 public class Main {
     // A main method to start the text editor application
     public static void main(String[] args) {

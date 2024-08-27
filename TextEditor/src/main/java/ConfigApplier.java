@@ -13,16 +13,17 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea; // to work with the RSyntaxT
 
 // A class to encapsulate the attributes and methods of the configuration applier
 public class ConfigApplier {
-    // === CLASS ATTRIBUTES ===
+
+    // === ATTRIBUTES ===
     private final ConfigLoader config;
 
-    // === CLASS METHODS ===
-
+    // === CONSTRUCTOR ===
     // A parameterized constructor to initialize a new configuration applier object
     public ConfigApplier(ConfigLoader config) {
         this.config = config;
     }
 
+    // === METHODS ===
     // A method to apply the configuration settings to the text area
     public void applyConfig(RSyntaxTextArea textArea) {
         // Get the font format, size, and color from the configuration file
@@ -41,18 +42,21 @@ public class ConfigApplier {
 
     // A private method to convert a color string to a Color object
     private Color getColorFromString(String colorString) {
-        // Try to get the color by name (e.g., "red", "blue", etc.) and return it if found
+        //  Create a local variable to store the color object
+        Color color;
+        // Try to get the color by name (e.g., "red", "blue", etc.)
         try {
-            return (Color) Color.class.getField(colorString.toUpperCase()).get(null);
+            color = (Color) Color.class.getField(colorString.toUpperCase()).get(null);
         } catch (Exception e) {
-            // If the color name is not found, try to decode the color from a hex string and return it if successful
+            // If the color name is not found, try to decode the color from a hex string
             try {
-                return Color.decode(colorString);
+                color = Color.decode(colorString);
                 // If both methods fail, print an error message and return the default color (gray)
             } catch (NumberFormatException ex) {
                 System.err.println("Invalid color format: " + colorString + ". Defaulting to default color.");
-                return Color.black; // Specify the default color
+                color = Color.black; // Specify the default color
             }
         }
+    return color; // Return the color object
     }
 }
