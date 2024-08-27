@@ -50,7 +50,7 @@ The Dockerfile is included in the root directory of the project. It sets up the 
 - `31d1117`: Added methods to enable SCPC (Select, Copy, Paste, Cut) functionality.
 - `e515919`: Added class/methods/dependency to enable applying settings from 'config.yaml' at run-time
 
-### Jaxon Doe:
+### Jaxon Goss:
 - `commit-id`: TO BE COMPLETED BY JAXON
 - `commit-id`: TO BE COMPLETED BY JAXON
 
