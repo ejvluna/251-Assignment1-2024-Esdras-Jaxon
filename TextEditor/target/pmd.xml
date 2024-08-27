@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2024-08-27T00:20:44.850">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2024-08-27T01:15:18.536">
 <error filename="/Users/jacko/Downloads/251-Assignment1-2024-Esdras-Jaxon-master/TextEditor/src/main/java/MenuHandler.java" msg="PMDException: Error while processing /Users/jacko/Downloads/251-Assignment1-2024-Esdras-Jaxon-master/TextEditor/src/main/java/MenuHandler.java">
 <![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/jacko/Downloads/251-Assignment1-2024-Esdras-Jaxon-master/TextEditor/src/main/java/MenuHandler.java
 	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
